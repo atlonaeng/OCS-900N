@@ -46,132 +46,137 @@
                         "id": {
                             "type": "string",
                             "description": "User supplied value, identifying the request"
-                        }
-                    },
-                    "oneOf": [
-                        {
-                            "description": "Get",
-                            "properties": {
-                                "get": {
-                                    "type": "string",
-                                    "description": "The name of the configuration node to retrieve",
-                                    "enum": [
-                                        "info",
-                                        "sensors",
-                                        "led",
-                                        "protocols",
-                                        "network",
-                                        "user"
-                                    ]
-                                }
-                            }
                         },
-                        {
-                            "description": "Set",
-                            "properties": {
-                                "set": {
-                                    "type": "object",
-                                    "description": "Apply a new partial configuration",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string",
-                                            "description": "The name of the configuration node to update",
-                                            "enum": [
-                                                "info",
-                                                "sensors",
-                                                "led",
-                                                "protocols",
-                                                "network",
-                                                "user"
-                                            ]
+                        "oneOf": [
+                            {
+                                "description": "Get",
+                                "properties": {
+                                    "get": {
+                                        "type": "string",
+                                        "description": "The name of the configuration node to retrieve",
+                                        "enum": [
+                                            "info",
+                                            "sensors",
+                                            "led",
+                                            "protocols",
+                                            "network",
+                                            "user"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "description": "Set",
+                                "properties": {
+                                    "set": {
+                                        "type": "object",
+                                        "description": "Apply a new partial configuration",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "The name of the configuration node to update",
+                                                "enum": [
+                                                    "info",
+                                                    "sensors",
+                                                    "led",
+                                                    "protocols",
+                                                    "network",
+                                                    "user"
+                                                ]
+                                            },
+                                            "config": {
+                                                "anyOf": [
+                                                    {
+                                                        "info": {
+                                                            "$ref": "#/$defs/info"
+                                                        },
+                                                        "sensors": {
+                                                            "$ref": "#/$defs/sensors"
+                                                        },
+                                                        "led": {
+                                                            "$ref": "#/$defs/led"
+                                                        },
+                                                        "protocols": {
+                                                            "$ref": "#/$defs/protocols"
+                                                        },
+                                                        "network": {
+                                                            "$ref": "#/$defs/network"
+                                                        },
+                                                        "user": {
+                                                            "$ref": "#/$defs/user"
+                                                        }
+                                                    }
+                                                ]
+                                            }
                                         },
-                                        "config": {
-                                            "anyOf": [
-                                                {
-                                                    "info": {
-                                                        "$ref": "#/$defs/info"
-                                                    },
-                                                    "sensors": {
-                                                        "$ref": "#/$defs/sensors"
-                                                    },
-                                                    "led": {
-                                                        "$ref": "#/$defs/led"
-                                                    },
-                                                    "protocols": {
-                                                        "$ref": "#/$defs/protocols"
-                                                    },
-                                                    "network": {
-                                                        "$ref": "#/$defs/network"
-                                                    },
-                                                    "user": {
-                                                        "$ref": "#/$defs/user"
+                                        "required": [
+                                            "name",
+                                            "config"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "description": "Methods",
+                                "properties": {
+                                    "method": {
+                                        "type": "object",
+                                        "description": "Generic method invocation",
+                                        "properties": {
+                                            "reboot": {
+                                                "type": "object",
+                                                "description": "Reboot the device",
+                                                "properties": {}
+                                            },
+                                            "help": {
+                                                "type": "object",
+                                                "description": "Enumerate the available set/get nodes or method calls",
+                                                "properties": {
+                                                    "type": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "get",
+                                                            "set",
+                                                            "method"
+                                                        ]
                                                     }
                                                 }
-                                            ]
-                                        }
-                                    },
-                                    "required": [
-                                        "name",
-                                        "config"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "description": "Methods",
-                            "properties": {
-                                "method": {
-                                    "oneOf":[
-                                        {
-                                            "type": "string",
-                                            "const": "identify",
-                                            "description": "Enable/disable blinking of LED indicator."
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "reboot",
-                                            "description": "Reboot the device"
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "factory_default",
-                                            "description": "Reset the device to factory defaults and reboot"
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "export_config",
-                                            "description": "Export the currently running configuration to the configuration export directory on the webserver"
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "import_config",
-                                            "description": "Overwrite the currently running configuration with the configuration located in the configuration import directory on the webserver"
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "upgrade",
-                                            "description": "Upgrade the currently running firmware with the firmware file POSTed to /fw_upload/"
-                                        },
-                                        {
-                                            "type": "object",
-                                            "description": "Enumerate the available set/get nodes or method calls",
-                                            "properties": {
-                                                "help": {
-                                                    "type": "string",
-                                                    "description": "Enumerate the available set/get nodes or method calls",
-                                                    "enum": [
-                                                        "get",
-                                                        "set",
-                                                        "method"
-                                                    ]
+                                            },
+                                            "factory_default": {
+                                                "type": "object",
+                                                "description": "Reset the device to factory defaults and reboot",
+                                                "properties": {}
+                                            },
+                                            "getConfig": {
+                                                "type": "object",
+                                                "description": "Export the configuration",
+                                                "properties": {}
+                                            },
+                                            "setConfig": {
+                                                "type": "object",
+                                                "description": "Import a new configuration",
+                                                "properties": {}
+                                            },
+                                            "identify": {
+                                                "type": "object",
+                                                "description": "Enable/disable blinking of LED indicator.",
+                                                "properties": {}
+                                            },
+                                            "upgrade": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "file": {
+                                                        "type": "string",
+                                                        "description": "The name of the file returned by the webserver after it was POSTed to /upload/"
+                                                    }
                                                 }
                                             }
                                         }
-                                    ]
+                                    }
                                 }
                             }
-                        }
-                    ]
+                        ]
+                    }
                 },
                 {
                     "type": "object",
@@ -190,53 +195,50 @@
                             "description": "Identification of the request, returns the value supplied by the called"
                         },
                         "config": {
-                            "type": "object",
-                            "properties": {
-                                "anyOf": [
-                                    {
-                                        "$ref": "#/$defs/info"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/deviceInfo"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/systemInfo"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/hardwareInfo"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/networkInfo"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/protocolInfo"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/sensors"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/motion"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/light"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/temperature"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/led"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/user"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/network"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/protocols"
-                                    }
-                                ]
-                            }
+                            "anyOf": [
+                                {
+                                    "$ref": "#/$defs/info"
+                                },
+                                {
+                                    "$ref": "#/$defs/deviceInfo"
+                                },
+                                {
+                                    "$ref": "#/$defs/systemInfo"
+                                },
+                                {
+                                    "$ref": "#/$defs/hardwareInfo"
+                                },
+                                {
+                                    "$ref": "#/$defs/networkInfo"
+                                },
+                                {
+                                    "$ref": "#/$defs/protocolInfo"
+                                },
+                                {
+                                    "$ref": "#/$defs/sensors"
+                                },
+                                {
+                                    "$ref": "#/$defs/motion"
+                                },
+                                {
+                                    "$ref": "#/$defs/light"
+                                },
+                                {
+                                    "$ref": "#/$defs/temperature"
+                                },
+                                {
+                                    "$ref": "#/$defs/led"
+                                },
+                                {
+                                    "$ref": "#/$defs/user"
+                                },
+                                {
+                                    "$ref": "#/$defs/network"
+                                },
+                                {
+                                    "$ref": "#/$defs/protocols"
+                                }
+                            ]
                         },
                         "reply": {
                             "anyOf": [
@@ -248,18 +250,6 @@
                                 },
                                 {
                                     "$ref": "#/$defs/help_reply"
-                                },
-                                {
-                                    "type": "string",
-                                    "const": "Rebooting..."
-                                },
-                                {
-                                    "type": "string",
-                                    "const": "Upgrading and Rebooting..."
-                                },
-                                {
-                                    "type": "string",
-                                    "const": "Resetting to Factory Default and Rebooting..."
                                 }
                             ]
                         }
@@ -454,14 +444,14 @@
                 "events": {
                     "$ref": "#/$defs/events",
                     "properties": {
-                        "unit": {
-                            "const": "ADC"
-                        },
                         "threshold": {
                             "description": "The required amount of the White sensor's ADC value change to trigger an event to subscribers.",
                             "multipleOf": 10,
                             "maximum": 65535,
                             "default": 300
+                        },
+                        "unit": {
+                            "const": "ADC"
                         }
                     }
                 }
@@ -528,6 +518,11 @@
             "type": "object",
             "description": "Subscriber event trigger definitions.",
             "properties": {
+                "threshold": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "The required amount of change to trigger an event to subscribers."
+                },
                 "unit": {
                     "type": "string",
                     "description": "Units for threshold value.",
@@ -536,11 +531,6 @@
                         "F",
                         "C"
                     ]
-                },
-                "threshold": {
-                    "type": "number",
-                    "minimum": 0,
-                    "description": "The required amount of change to trigger an event to subscribers."
                 }
             }
         },
