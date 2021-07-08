@@ -1,0 +1,323 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/schema/AT-OCS-900N_API_Schema.json",
+    "type": "object",
+    "title": "Atlona JSON API",
+    "description": "The AT-OCS-900N JSON API schema.",
+    "$defs": {
+        "export_config_reply": {
+            "type": "object",
+            "properties": {
+                "configuration": {
+                    "type": "object",
+                    "description": "The requested configuration"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the configuration."
+                }
+            }
+        },
+        "list_config_reply": {
+            "type": "object",
+            "properties": {
+                "configurations": {
+                    "type": "array",
+                    "description": "A list of available configurations",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "get_logs_reply": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "The path where the log file can be found. Prefix 'https://<IP>' to get the full URL."
+                }
+            }
+        },
+        "introspect_reply": {
+            "type": "array",
+            "description": "A list of config_set, config_get or methods available on this system",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "oneOf": [
+        {
+            "type": "object",
+            "required": [
+                "username",
+                "password"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "User supplied value, identifying the request"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The name of the user making the request"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password of the user making the request"
+                },
+                "config_get": {
+                    "type": "string",
+                    "description": "The name of the configuration node to retrieve",
+                    "enum": [
+                        "info",
+                        "sensors",
+                        "led",
+                        "protocols",
+                        "network",
+                        "user"
+                    ]
+                },
+                "config_set": {
+                    "type": "object",
+                    "description": "Apply a new partial configuration",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The name of the configuration node to update",
+                            "enum": [
+                                "info",
+                                "sensors",
+                                "led",
+                                "protocols",
+                                "network",
+                                "user"
+                            ]
+                        },
+                        "config": {
+                            "anyOf": [
+                                {
+                                    "info": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/info"
+                                    },
+                                    "sensors": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/sensors"
+                                    },
+                                    "led": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/led"
+                                    },
+                                    "protocols": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/protocols"
+                                    },
+                                    "network": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/network"
+                                    },
+                                    "user": {
+                                        "$ref": "AT-OCS-900N_API_Schema.json#/$defs/user"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "config"
+                    ]
+                },
+                "method": {
+                    "type": "object",
+                    "description": "Generic method invocation",
+                    "properties": {
+                        "reboot": {
+                            "type": "object",
+                            "description": "Reboot the device",
+                            "properties": {}
+                        },
+                        "get_logs": {
+                            "type": "object",
+                            "description": "Generate a debug file and return a URL indicating where it can be found",
+                            "properties": {}
+                        },
+                        "introspect": {
+                            "type": "object",
+                            "description": "Enumerate the available config_set/config_get nodes or method calls",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "config_get",
+                                        "config_set",
+                                        "method"
+                                    ]
+                                }
+                            }
+                        },
+                        "factoryDefault": {
+                            "type": "object",
+                            "description": "Reset the device to factory defaults and reboot",
+                            "properties": {}
+                        },
+                        "export_config": {
+                            "type": "object",
+                            "description": "Export the configuration",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "The name of the requested configuration. \"current\" is the currently active configuration."
+                                }
+                            }
+                        },
+                        "import_config": {
+                            "type": "object",
+                            "description": "Import a new configuration",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "The name of the new configuration. \"current\" is the currently active configuration."
+                                },
+                                "configuration": {
+                                    "type": "object",
+                                    "description": "The configuration to store, as a JSON object"
+                                }
+                            }
+                        },
+                        "import_config_file": {
+                            "type": "object",
+                            "description": "Import a new configuration from an uploaded file",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "The name of the requested configuration. \"current\" is the currently active configuration."
+                                },
+                                "file": {
+                                    "type": "string",
+                                    "description": "The name of the file returned by the webserver after it was POSTed to /upload/"
+                                }
+                            }
+                        },
+                        "list_config": {
+                            "type": "object",
+                            "description": "List the available configurations",
+                            "properties": {}
+                        },
+                        "ntpSync": {
+                            "type": "object",
+                            "description": "Trigger synchronization with the NTP server.",
+                            "properties": {}
+                        },
+                        "identify": {
+                            "type": "object",
+                            "description": "Enable/disable blinking of LED indicator.",
+                            "properties": {}
+                        },
+                        "upgrade": {
+                            "type": "object",
+                            "properties": {
+                                "file": {
+                                    "type": "string",
+                                    "description": "The name of the file returned by the webserver after it was POSTed to /upload/"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "type": "object",
+            "description": "A response to a config_get/config_set request",
+            "properties": {
+                "error": {
+                    "type": "boolean",
+                    "description": "Present in all replies, true if there was a problem with the request."
+                },
+                "error_message": {
+                    "type": "string",
+                    "description": "Description of the problem with the request. Present if \"error\" is true"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Identification of the request, returns the value supplied by the called"
+                },
+                "config": {
+                    "anyOf": [
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/info"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/deviceInfo"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/systemInfo"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/hardwareInfo"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/networkInfo"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/protocolInfo"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/sensors"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/motionSensor"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/lightSensor"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/tempSensor"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/led"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/datetime"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/sntp"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/daylightSaving"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/timezone"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/user"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/network"
+                        },
+                        {
+                            "$ref": "AT-OCS-900N_Configuration_Schema.json#/$defs/protocols"
+                        }
+                    ]
+                },
+                "reply": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/export_config_reply"
+                        },
+                        {
+                            "$ref": "#/$defs/list_config_reply"
+                        },
+                        {
+                            "$ref": "#/$defs/get_logs_reply"
+                        },
+                        {
+                            "$ref": "#/$defs/introspect_reply"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "error"
+            ]
+        }
+    ]
+}
