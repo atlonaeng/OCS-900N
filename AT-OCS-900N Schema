@@ -1,8 +1,8 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "#/schema/AT-OCS-900N_API_Schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://atlona.com/schema/AT-OCS-900N_API_Schema.json",
     "type": "object",
-    "title": "Atlona JSON API",
+    "title": "Atlona AT-OCS-900N JSON API",
     "description": "The AT-OCS-900N JSON API schema.",
     "$defs": {
         "export_config_reply": {
@@ -41,7 +41,7 @@
         },
         "introspect_reply": {
             "type": "array",
-            "description": "A list of config_set, config_get or methods available on this system",
+            "description": "A list of set, get or methods available on this system",
             "items": {
                 "type": "string"
             }
@@ -67,7 +67,7 @@
                     "type": "string",
                     "description": "The password of the user making the request"
                 },
-                "config_get": {
+                "get": {
                     "type": "string",
                     "description": "The name of the configuration node to retrieve",
                     "enum": [
@@ -79,7 +79,7 @@
                         "user"
                     ]
                 },
-                "config_set": {
+                "set": {
                     "type": "object",
                     "description": "Apply a new partial configuration",
                     "properties": {
@@ -141,13 +141,13 @@
                         },
                         "introspect": {
                             "type": "object",
-                            "description": "Enumerate the available config_set/config_get nodes or method calls",
+                            "description": "Enumerate the available set/get nodes or method calls",
                             "properties": {
                                 "type": {
                                     "type": "string",
                                     "enum": [
-                                        "config_get",
-                                        "config_set",
+                                        "get",
+                                        "set",
                                         "method"
                                     ]
                                 }
@@ -226,7 +226,7 @@
         },
         {
             "type": "object",
-            "description": "A response to a config_get/config_set request",
+            "description": "A response to a get/set request",
             "properties": {
                 "error": {
                     "type": "boolean",
