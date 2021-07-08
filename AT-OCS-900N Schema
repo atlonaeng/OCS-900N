@@ -713,18 +713,7 @@
             ]
         },
         "networkInfo": {
-            "type": "object",
-            "description": "Network information.",
-            "readOnly": true,
-            "properties": {
-                "ipSettings": {
-                    "$ref": "#/$defs/ipSettings",
-                    "readOnly": true
-                },
-                "hostname": {
-                    "$ref": "#/$defs/network/properties/hostname"
-                }
-            }
+            "$ref": "#/$defs/network"
         },
         "user": {
             "type": "object",
@@ -755,10 +744,13 @@
             "type": "object",
             "description": "Network settings.",
             "properties": {
-                "dhcp": {
-                    "type": "boolean",
-                    "description": "Toggle DHCP/Static.\n  * True: DHCP\n  * False: Static",
-                    "default": true
+                "macAddress": {
+                    "type": "string",
+                    "description": "MAC address.",
+                    "readOnly": true,
+                    "examples": [
+                        "B8:98:B0:00:9A:FF"
+                    ]
                 },
                 "ipSettings": {
                     "$ref": "#/$defs/ipSettings"
@@ -772,35 +764,6 @@
                     ],
                     "minLength": 2,
                     "maxLength": 16
-                },
-                "tls": {
-                    "type": "object",
-                    "description": "TLS settings.",
-                    "properties": {
-                        "enabled": {
-                            "$ref": "#/$defs/enabled"
-                        }
-                    }
-                }
-            },
-            "if": {
-                "properties": {
-                    "ipMode": {
-                        "const": true
-                    }
-                }
-            },
-            "then": {
-                "properties": {
-                    "ipSettings": {
-                        "readOnly": true
-                    },
-                    "netmask": {
-                        "readOnly": true
-                    },
-                    "gateway": {
-                        "readOnly": true
-                    }
                 }
             }
         },
@@ -808,6 +771,11 @@
             "type": "object",
             "description": "IP settings.",
             "properties": {
+                "dhcp": {
+                    "type": "boolean",
+                    "description": "Toggle DHCP/Static.\n  * True: DHCP\n  * False: Static",
+                    "default": true
+                },
                 "ip": {
                     "type": "string",
                     "format": "ipv4",
@@ -901,6 +869,26 @@
                         "192.168.1.1",
                         "10.1.1.1"
                     ]
+                },
+                "if": {
+                    "properties": {
+                        "dhcp": {
+                            "const": true
+                        }
+                    }
+                },
+                "then": {
+                    "properties": {
+                        "ip": {
+                            "readOnly": true
+                        },
+                        "netmask": {
+                            "readOnly": true
+                        },
+                        "gateway": {
+                            "readOnly": true
+                        }
+                    }
                 }
             }
         },
