@@ -800,9 +800,6 @@
                         "B8:98:B0:00:9A:FF"
                     ]
                 },
-                "ipSettings": {
-                    "$ref": "#/$defs/ipSettings"
-                },
                 "hostname": {
                     "type": "string",
                     "description": "Device hostname.",
@@ -812,6 +809,14 @@
                     ],
                     "minLength": 2,
                     "maxLength": 16
+                },
+                "tls": {
+                    "type": "boolean",
+                    "description": "Toggle TLS enabled/disabled.",
+                    "default": true
+                },
+                "ipSettings": {
+                    "$ref": "#/$defs/ipSettings"
                 }
             }
         },
@@ -917,6 +922,32 @@
                         "192.168.1.1",
                         "10.1.1.1"
                     ]
+                },
+                "dns": {
+                    "type": "object",
+                    "description": "DNS settings.",
+                    "properties": {
+                        "primary": {
+                            "type": "string",
+                            "format": "ipv4",
+                            "description": "Primary DNS IPv4 address.",
+                            "default": "",
+                            "examples": [
+                                "192.168.1.1",
+                                "10.1.1.1"
+                            ]
+                        },
+                        "secondary": {
+                            "type": "string",
+                            "format": "ipv4",
+                            "description": "Secondary DNS IPv4 address.",
+                            "default": "",
+                            "examples": [
+                                "192.168.1.1",
+                                "10.1.1.1"
+                            ]
+                        }
+                    }
                 },
                 "if": {
                     "properties": {
