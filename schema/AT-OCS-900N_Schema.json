@@ -367,9 +367,6 @@
                                     "$ref": "#/$defs/export_config_reply"
                                 },
                                 {
-                                    "$ref": "#/$defs/list_config_reply"
-                                },
-                                {
                                     "$ref": "#/$defs/help_reply"
                                 },
                                 {
@@ -546,6 +543,9 @@
             "description": "Light sensor information.",
             "properties": {
                 "values": {
+                    "type": "object",
+                    "description": "Light sensor values",
+                    "readOnly": true,
                     "white": {
                         "$ref": "#/$defs/ADC",
                         "maximum": 65535,
@@ -603,23 +603,21 @@
                 "values": {
                     "type": "object",
                     "description": "The ADC, Fahrenheit, and Celsius values of the temperature sensor.",
+                    "readOnly": true,
                     "properties": {
                         "ADC": {
                             "$ref": "#/$defs/ADC",
                             "maximum": 1024,
-                            "readOnly": true,
                             "description": "10-bit decimal representation of Temperature Sensor Analog to Digital Converter."
                         },
                         "F": {
                             "type": "number",
                             "multipleOf": 0.1,
-                            "readOnly": true,
                             "description": "Temperature Sensor value in degrees Fahrenheit."
                         },
                         "C": {
                             "type": "number",
                             "multipleOf": 0.1,
-                            "readOnly": true,
                             "description": "Temperature Sensor value in degrees Fahrenheit."
                         }
                     }
@@ -692,7 +690,55 @@
                     "description": "LED color when motion is not detected.",
                     "$ref": "#/$defs/colors"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "center": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "outer": {
+                                "const": false
+                            }
+                        }
+                    },
+                    "else": {
+                        "properties": {
+                            "outer": {
+                                "const": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "outer": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "center": {
+                                "const": false
+                            }
+                        }
+                    },
+                    "else": {
+                        "properties": {
+                            "center": {
+                                "const": true
+                            }
+                        }
+                    }
+                }
+            ]
         },
         "color": {
             "oneOf": [
@@ -993,7 +1039,7 @@
                 "mqtt": {
                     "type": "boolean",
                     "description": "MQTT enable/disable",
-                    "default": true
+                    "default": false
                 }
             }
         },
@@ -1274,23 +1320,160 @@
                 }
             }
         },
-        "list_config_reply": {
-            "type": "object",
-            "properties": {
-                "configurations": {
-                    "type": "array",
-                    "description": "A list of available configurations",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
         "help_reply": {
-            "type": "array",
+            "type": "object",
             "description": "A list of set, get or methods available on this system",
-            "items": {
-                "type": "string"
+            "properties": {
+                "get": {
+                    "type": "array",
+                    "description": "A list of get nodes available on this system",
+                    "items": [
+                        {
+                            "type":"string",
+                            "const": "info"
+                        },
+                        {
+                            "type":"string",
+                            "const": "deviceInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "systemInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "hardwareInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "networkInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "protocolInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "sensors"
+                        },
+                        {
+                            "type":"string",
+                            "const": "motion"
+                        },
+                        {
+                            "type":"string",
+                            "const": "light"
+                        },
+                        {
+                            "type":"string",
+                            "const": "temperature"
+                        },
+                        {
+                            "type":"string",
+                            "const": "led"
+                        },
+                        {
+                            "type":"string",
+                            "const": "protocols"
+                        },
+                        {
+                            "type":"string",
+                            "const": "network"
+                        },
+                        {
+                            "type":"string",
+                            "const": "user"
+                        }
+                    ]
+                },
+                "set": {
+                    "type": "array",
+                    "description": "A list of get nodes available on this system",
+                    "items": [
+                        {
+                            "type":"string",
+                            "const": "info"
+                        },
+                        {
+                            "type":"string",
+                            "const": "systemInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "networkInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "protocolInfo"
+                        },
+                        {
+                            "type":"string",
+                            "const": "sensors"
+                        },
+                        {
+                            "type":"string",
+                            "const": "motion"
+                        },
+                        {
+                            "type":"string",
+                            "const": "light"
+                        },
+                        {
+                            "type":"string",
+                            "const": "temperature"
+                        },
+                        {
+                            "type":"string",
+                            "const": "led"
+                        },
+                        {
+                            "type":"string",
+                            "const": "protocols"
+                        },
+                        {
+                            "type":"string",
+                            "const": "network"
+                        },
+                        {
+                            "type":"string",
+                            "const": "user"
+                        }
+                    ]
+                },
+                "method": {
+                    "type": "array",
+                    "description": "A list of get nodes available on this system",
+                    "items": [
+                        {
+                            "type":"string",
+                            "const": "identify"
+                        },
+                        {
+                            "type":"string",
+                            "const": "reboot"
+                        },
+                        {
+                            "type":"string",
+                            "const": "factory_default"
+                        },
+                        {
+                            "type":"string",
+                            "const": "export_config"
+                        },
+                        {
+                            "type":"string",
+                            "const": "import_config"
+                        },
+                        {
+                            "type":"string",
+                            "const": "upgrade"
+                        },
+                        {
+                            "type":"string",
+                            "const": "help"
+                        }
+                    ]
+                }
             }
         }
     }

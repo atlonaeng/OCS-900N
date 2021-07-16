@@ -1,0 +1,19 @@
+﻿{
+    "set": {
+        "name": "protocols",
+        "config": {
+            "udp": {
+                "subscribers": {
+                    "1": {
+                        "enabled": true,
+                        "ip": "192.168.1.50",
+                        "port": 9000,
+                        "motion": true,
+                        "light": true,
+                        "temperature": true
+                    }
+                }
+            }
+        }
+    }
+}
