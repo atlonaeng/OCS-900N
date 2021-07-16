@@ -95,31 +95,11 @@
                                             {
                                                 "name": {
                                                     "type": "string",
-                                                    "description": "The deviceInfo configuration node name",
-                                                    "const": "deviceInfo"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/deviceInfo"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
                                                     "description": "The systemInfo configuration node name",
                                                     "const": "systemInfo"
                                                 },
                                                 "config": {
                                                     "$ref": "#/$defs/systemInfo"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The hardwareInfo configuration node name",
-                                                    "const": "hardwareInfo"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/hardwareInfo"
                                                 }
                                             },
                                             {
