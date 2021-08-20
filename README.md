@@ -1,7 +1,7 @@
 # AT-OCS-900N
 Files and resources for AT-OCS-900N development.
 
-# OCS-900N Velocity Variables
+# Velocity Variables
 
 | Variable Name | Example Data | Variable Value |
 |---------------|--------------|----------------|
