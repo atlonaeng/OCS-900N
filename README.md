@@ -1,7 +1,13 @@
 # AT-OCS-900N
 Files and resources for the Atlona AT-OCS-900N.
 
-# Velocity Variables
+## [JSON Schema](schema/AT-OCS-900N_Schema.json)
+
+## [Postman Collection](Postman/AT-OCS-900N_Postman-Collection.json)
+
+## Velocity Integration
+
+### Variables
 
 | Variable Name | Example Data | Data Type | Variable Value |
 |---------------|--------------|-----------|----------------|
