@@ -1,0 +1,1191 @@
+{
+  "info": {
+    "_postman_id": "bf35464c-bff9-40f5-848d-1a3c483388b6",
+    "name": "AT-OCS-900N",
+    "description": "The requests documented in this collection were collected by monitoring traffic of an AT-OCS-900N prior to the 1.0.0 release. These requests are subject to change.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Initial POST",
+      "item": [
+        {
+          "name": "Register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "87e6ae0f-b133-418d-a1ad-f2b6f792aedf",
+                "exec": [
+                  "pm.environment.set(\"session\", pm.response.headers.get(\"Location\").slice(-8));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7750183f-31b0-4fe3-a26e-fcf603dcf305",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "followAuthorizationHeader": true,
+            "removeRefererHeaderOnRedirect": true,
+            "tlsPreferServerCiphers": true,
+            "followRedirects": false
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "description": "username"
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "description": "password"
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": "http{{secure}}://{{ip}}/register.htm",
+            "description": "The `Register` request must be sent to the AT-OCS-900N if it has not yet been registered.\n\nSupply a username to `usr` and a password to `password`.\n\nUsername and password must each be 5-20 characters long and only consist of printable ASCII characters.\n\nThey can be the same value."
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5404e92c-d812-40e2-8a0c-d080b30e4397",
+                "exec": [
+                  "pm.environment.set(\"session\", pm.response.headers.get(\"Location\").slice(-8));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cc248345-fd52-43bc-9be2-86c10f3f2ca6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "followAuthorizationHeader": true,
+            "removeRefererHeaderOnRedirect": true,
+            "tlsPreferServerCiphers": true,
+            "followRedirects": false
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "description": "username"
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "description": "password"
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": "http{{secure}}://{{ip}}/index.htm",
+            "description": "The `Login` request must be sent to the AT-OCS-900N to login and further access the device."
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "748bda03-a67b-4253-84f8-09b0c58aa427",
+      "description": "The `Register` request must be sent to the AT-OCS-900N if it has not yet been registered.\n\nAfter registration, the `Login` request must be sent to the AT-OCS-900N to login and further access the device."
+    },
+    {
+      "name": "Pages",
+      "item": [
+        {
+          "name": "Dashboard",
+          "_postman_id": "b2b07d9f-bd44-49c3-8376-6ad0a0c03688",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/dashboard.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "dashboard.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The Dashboard page contains the bulk of system/status info for the AT-OCS-900N."
+          },
+          "response": []
+        },
+        {
+          "name": "Dashboard - Protocols",
+          "_postman_id": "d7418e54-146f-42f0-83d0-24489f45635a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "CE0",
+                  "value": "{{udp}}",
+                  "description": "UDP Toggle",
+                  "type": "text"
+                },
+                {
+                  "key": "CE1",
+                  "value": "{{tcp}}",
+                  "description": "TCP Toggle",
+                  "type": "text"
+                },
+                {
+                  "key": "CE2",
+                  "value": "{{ws}}",
+                  "description": "WS Toggle",
+                  "type": "text"
+                },
+                {
+                  "key": "CE3",
+                  "value": "{{mqtt}}",
+                  "description": "MQTT Toggle",
+                  "type": "text"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/dashboard.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "dashboard.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The Dashboard page includes a form containing toggles for the AT-OCS-900N protocols."
+          },
+          "response": []
+        },
+        {
+          "name": "Sensors",
+          "_postman_id": "6e96a878-ffca-45f6-b249-be5526c75d84",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "disabled": true
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/sensors.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "sensors.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The Sensors page allows configuration of each sensor."
+          },
+          "response": []
+        },
+        {
+          "name": "Protocols",
+          "_postman_id": "ce31fdb6-3430-422a-9ae3-6a26b1223b26",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "disabled": true
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/protocols.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "protocols.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The Protocols page allows configuration of each protocol."
+          },
+          "response": []
+        },
+        {
+          "name": "Network",
+          "_postman_id": "69375481-786e-4392-bc99-92293392ce14",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "disabled": true
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/network.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "network.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The Network page contains the network status and allows configuration of the network."
+          },
+          "response": []
+        },
+        {
+          "name": "User",
+          "_postman_id": "141a7623-bc9d-48de-bddc-265a4ad16065",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "disabled": true
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/user.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "user.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The User page allows configuration of the username and password."
+          },
+          "response": []
+        },
+        {
+          "name": "System",
+          "_postman_id": "79e06674-f435-4b07-aff6-9defd9a46257",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "usr",
+                  "value": "{{usr}}",
+                  "disabled": true
+                },
+                {
+                  "key": "pw",
+                  "value": "{{pw}}",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/system.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "system.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "The System page allows configuration of the system name and location, as well as some methods."
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "c1151f31-43f1-4583-99cf-1906bfdf2db9",
+      "description": "Once logged in, each page becomes accessible."
+    },
+    {
+      "name": "Methods",
+      "item": [
+        {
+          "name": "Restart",
+          "_postman_id": "baee0160-bf04-40aa-beb0-76d0f895af10",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/reboot.cgi?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "reboot.cgi"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Reboots the AT-OCS-900N."
+          },
+          "response": []
+        },
+        {
+          "name": "Factory Reset",
+          "_postman_id": "e68b1aae-cfd3-4843-bead-de86c3edd124",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/factoryreset.cgi?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "factoryreset.cgi"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Factory resets and reboots the AT-OCS-900N."
+          },
+          "response": []
+        },
+        {
+          "name": "Upgrade Firmware",
+          "_postman_id": "5cf49077-b181-42d4-a3ad-84c87a82b135",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "same-origin"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "navigate"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "document"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "i",
+                  "description": "Firmware File",
+                  "type": "file",
+                  "src": "AT-OCS-900N_V1.0.0.bin"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/ImageUpgrades?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "ImageUpgrades"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Uploads `firmware.bin` and updates device firmware, then reboots device."
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Config",
+          "_postman_id": "52977b68-dc03-470a-8b66-21ccc689c80d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "c",
+                  "description": "Configuration File",
+                  "type": "file",
+                  "value": null
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/system.htm?sn={{session}}&config=1",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "system.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                },
+                {
+                  "key": "config",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Uploads a `config.json` file to the AT-OCS-900N."
+          },
+          "response": []
+        },
+        {
+          "name": "Download Config",
+          "_postman_id": "11cfc90a-c0b8-449f-96cf-faaeb0e543da",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/config.json?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "config.json"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Downloads the current `config.json` file from the AT-OCS-900N."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Credentials",
+          "_postman_id": "55ced64e-5242-4eb5-bb55-0b2dfbf8a23b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "usr",
+                  "description": "Username",
+                  "type": "text",
+                  "value": "{{usr}}"
+                },
+                {
+                  "key": "nps",
+                  "value": "{{pw}}",
+                  "description": "New Password",
+                  "type": "text"
+                },
+                {
+                  "key": "cps",
+                  "value": "{{pw}}",
+                  "description": "Confirm New Password",
+                  "type": "text"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/system.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "system.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Modifies the username and password."
+          },
+          "response": []
+        },
+        {
+          "name": "Identify",
+          "_postman_id": "cc2ec9a9-7243-43e5-ae10-21ec0bb787e7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/identify.cgi?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "identify.cgi"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Causes the device to cycle its LED for physical identification."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Name and Location",
+          "_postman_id": "e87d49e2-373b-4892-8431-5995edddd6a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              },
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              },
+              {
+                "key": "Sec-Fetch-User",
+                "value": "?1"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "des",
+                  "description": "Name",
+                  "type": "text",
+                  "value": "{{deviceName}}"
+                },
+                {
+                  "key": "loc",
+                  "value": "{{deviceLocation}}",
+                  "description": "Location",
+                  "type": "text"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": {
+              "raw": "http{{secure}}://{{ip}}/protect/system.htm?sn={{session}}",
+              "protocol": "http{{secure}}",
+              "host": [
+                "{{ip}}"
+              ],
+              "path": [
+                "protect",
+                "system.htm"
+              ],
+              "query": [
+                {
+                  "key": "sn",
+                  "value": "{{session}}"
+                }
+              ]
+            },
+            "description": "Updates the device Name and Location."
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "a2919c0c-d72f-425d-9ae5-2f34dbf48a02",
+      "description": "Methods trigger restart, factory reset, download/upload configuration, identify, reset credentials, and update name/location."
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "1888c88c-78a2-4818-9431-09f5aad8d6b4",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "ea614693-4214-4d95-be0b-1876d0f94dd9",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "0676153f-e5c5-47af-9a25-8b7ecef2a8e1",
+      "key": "ip",
+      "value": "{{ip}}",
+      "type": "string"
+    },
+    {
+      "id": "d2620008-6d05-4579-a3e9-1e9fe35d645f",
+      "key": "hostname",
+      "value": "{{host}}",
+      "type": "string"
+    },
+    {
+      "id": "24fe02e9-c41a-408d-bf6b-829fd10535c8",
+      "key": "usr",
+      "value": "{{usr}}",
+      "type": "string"
+    },
+    {
+      "id": "c6dd99c6-3be1-4d16-a4b5-0ca51dbd76fb",
+      "key": "pw",
+      "value": "{{pw}}",
+      "type": "string"
+    },
+    {
+      "id": "8dfc9514-4b0e-4723-9d50-5ae800c5481d",
+      "key": "location",
+      "value": "{{location}}",
+      "type": "string"
+    },
+    {
+      "id": "f901fab9-7429-428c-b5bb-9f34fcdfcf51",
+      "key": "secure",
+      "value": "{{secure}}",
+      "type": "string"
+    }
+  ]
+}
