@@ -1,11 +1,11 @@
 # AT-OCS-900N
 Files and resources for the Atlona AT-OCS-900N.
 
-## [JSON Schema](schema/AT-OCS-900N_Schema.json)
-The AT-OCS-900N JSON Schema conforms to [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/schema) and defines the configuration and communications nodes.
+## JSON Schema
+The [AT-OCS-900N JSON Schema](schema/AT-OCS-900N_Schema.json) conforms to [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/schema) and defines the configuration and communications nodes.
 
-## [Postman Collection](Postman/AT-OCS-900N_Postman-Collection.json)
-The Postman Collection contains example HTTP requests for navigating the AT-OCS-900N Web User Interface.
+## Postman Collection
+The [Postman Collection](Postman/AT-OCS-900N_Postman-Collection.json) contains example HTTP requests for navigating the AT-OCS-900N Web User Interface.
 
 ## Velocity Integration
 
