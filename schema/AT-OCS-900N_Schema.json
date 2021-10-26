@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/atlonaeng/AT-OCS-900N/schema/AT-OCS-900N_Schema.json",
+    "$id": "https://atlona.com/schema/AT-OCS-900N_Schema.json",
     "type": "object",
     "title": "Atlona JSON Schema",
     "description": "The AT-OCS-900N JSON schema.",
