@@ -1,1350 +1,1350 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://atlona.com/schema/AT-OCS-900N_Schema.json",
-    "type": "object",
-    "title": "Atlona JSON Schema",
-    "description": "The AT-OCS-900N JSON schema.",
-    "oneOf": [
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlona.com/schema/AT-OCS-900N_Schema.json",
+  "type": "object",
+  "title": "Atlona JSON Schema",
+  "description": "The AT-OCS-900N JSON schema.",
+  "oneOf": [
+    {
+      "description": "Configuration",
+      "anyOf": [
         {
-            "description": "Configuration",
-            "anyOf": [
-                {
-                    "description": "Device Info is Exported with the configuration file, but ignored on import.",
-                    "$ref": "#/$defs/deviceInfo"
-                },
-                {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/systemInfo"
-                        },
-                        {
-                            "$ref": "#/$defs/sensors"
-                        },
-                        {
-                            "$ref": "#/$defs/led"
-                        },
-                        {
-                            "$ref": "#/$defs/protocols"
-                        },
-                        {
-                            "$ref": "#/$defs/network"
-                        },
-                        {
-                            "$ref": "#/$defs/user"
-                        }
-                    ]
-                }
-            ]
+          "description": "Device Info is Exported with the configuration file, but ignored on import.",
+          "$ref": "#/$defs/deviceInfo"
         },
         {
-            "description": "Communication",
-            "oneOf": [
-                {
-                    "type": "object",
-                    "description": "Communication to device",
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "User supplied value, identifying the request"
-                        }
-                    },
-                    "oneOf": [
-                        {
-                            "description": "Get",
-                            "properties": {
-                                "get": {
-                                    "type": "string",
-                                    "description": "The name of the configuration node to retrieve",
-                                    "enum": [
-                                        "info",
-                                        "deviceInfo",
-                                        "systemInfo",
-                                        "hardwareInfo",
-                                        "networkInfo",
-                                        "protocolInfo",
-                                        "sensors",
-                                        "motion",
-                                        "light",
-                                        "temperature",
-                                        "led",
-                                        "protocols",
-                                        "network",
-                                        "user"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "description": "Set",
-                            "properties": {
-                                "set": {
-                                    "type": "object",
-                                    "description": "Apply a new partial configuration",
-                                    "properties": {
-                                        "anyOf": [
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The info configuration node name",
-                                                    "const": "info"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/info"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The systemInfo configuration node name",
-                                                    "const": "systemInfo"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/systemInfo"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The networkInfo configuration node name",
-                                                    "const": "networkInfo"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/networkInfo"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The protocolInfo configuration node name",
-                                                    "const": "protocolInfo"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/protocolInfo"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The sensors configuration node name",
-                                                    "const": "sensors"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/sensors"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The motion configuration node name",
-                                                    "const": "motion"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/motion"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The light configuration node name",
-                                                    "const": "light"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/light"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The temperature configuration node name",
-                                                    "const": "temperature"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/temperature"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The led configuration node name",
-                                                    "const": "led"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/led"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The user configuration node name",
-                                                    "const": "user"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/user"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The network configuration node name",
-                                                    "const": "network"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/network"
-                                                }
-                                            },
-                                            {
-                                                "name": {
-                                                    "type": "string",
-                                                    "description": "The protocols configuration node name",
-                                                    "const": "protocols"
-                                                },
-                                                "config": {
-                                                    "$ref": "#/$defs/protocols"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "required": [
-                                        "name",
-                                        "config"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "description": "Methods",
-                            "properties": {
-                                "method": {
-                                    "type": "string",
-                                    "oneOf": [
-                                        {
-                                            "const": "identify",
-                                            "description": "Enable/disable blinking of LED indicator."
-                                        },
-                                        {
-                                            "const": "reboot",
-                                            "description": "Reboot the device"
-                                        },
-                                        {
-                                            "const": "factory_default",
-                                            "description": "Reset the device to factory defaults and reboot"
-                                        },
-                                        {
-                                            "const": "help",
-                                            "description": "Enumerate the available set/get nodes or method calls"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "object",
-                    "description": "A response to a get/set/method request",
-                    "properties": {
-                        "error": {
-                            "type": "boolean",
-                            "description": "Present in all replies, true if there was a problem with the request"
-                        },
-                        "error_message": {
-                            "type": "string",
-                            "description": "Description of the problem with the request. Present if \"error\" is true on basic level errors"
-                        },
-                        "id": {
-                            "type": "string",
-                            "description": "User-supplied string to identify the request, returns the value supplied by the request"
+          "allOf": [
+            {
+              "$ref": "#/$defs/systemInfo"
+            },
+            {
+              "$ref": "#/$defs/sensors"
+            },
+            {
+              "$ref": "#/$defs/led"
+            },
+            {
+              "$ref": "#/$defs/protocols"
+            },
+            {
+              "$ref": "#/$defs/network"
+            },
+            {
+              "$ref": "#/$defs/user"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Communication",
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Communication to device",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "User supplied value, identifying the request"
+            }
+          },
+          "oneOf": [
+            {
+              "description": "Get",
+              "properties": {
+                "get": {
+                  "type": "string",
+                  "description": "The name of the configuration node to retrieve",
+                  "enum": [
+                    "info",
+                    "deviceInfo",
+                    "systemInfo",
+                    "hardwareInfo",
+                    "networkInfo",
+                    "protocolInfo",
+                    "sensors",
+                    "motion",
+                    "light",
+                    "temperature",
+                    "led",
+                    "protocols",
+                    "network",
+                    "user"
+                  ]
+                }
+              }
+            },
+            {
+              "description": "Set",
+              "properties": {
+                "set": {
+                  "type": "object",
+                  "description": "Apply a new partial configuration",
+                  "properties": {
+                    "anyOf": [
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The info configuration node name",
+                          "const": "info"
                         },
                         "config": {
-                            "anyOf": [
-                                {
-                                    "info": {
-                                        "$ref": "#/$defs/info"
-                                    }
-                                },
-                                {
-                                    "deviceInfo": {
-                                        "$ref": "#/$defs/deviceInfo"
-                                    }
-                                },
-                                {
-                                    "systemInfo": {
-                                        "$ref": "#/$defs/systemInfo"
-                                    }
-                                },
-                                {
-                                    "hardwareInfo": {
-                                        "$ref": "#/$defs/hardwareInfo"
-                                    }
-                                },
-                                {
-                                    "networkInfo": {
-                                        "$ref": "#/$defs/networkInfo"
-                                    }
-                                },
-                                {
-                                    "protocolInfo": {
-                                        "$ref": "#/$defs/protocolInfo"
-                                    }
-                                },
-                                {
-                                    "sensors": {
-                                        "$ref": "#/$defs/sensors"
-                                    }
-                                },
-                                {
-                                    "motion": {
-                                        "$ref": "#/$defs/motion"
-                                    }
-                                },
-                                {
-                                    "light": {
-                                        "$ref": "#/$defs/light"
-                                    }
-                                },
-                                {
-                                    "temperature": {
-                                        "$ref": "#/$defs/temperature"
-                                    }
-                                },
-                                {
-                                    "led": {
-                                        "$ref": "#/$defs/led"
-                                    }
-                                },
-                                {
-                                    "user": {
-                                        "$ref": "#/$defs/user"
-                                    }
-                                },
-                                {
-                                    "network": {
-                                        "$ref": "#/$defs/network"
-                                    }
-                                },
-                                {
-                                    "protocols": {
-                                        "$ref": "#/$defs/protocols"
-                                    }
-                                }
-                            ]
-                        },
-                        "reply": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/$defs/help_reply"
-                                },
-                                {
-                                    "type": "string",
-                                    "const": "Rebooting..."
-                                },
-                                {
-                                    "type": "string",
-                                    "const": "Resetting to Factory Default and Rebooting..."
-                                }
-                            ]
+                          "$ref": "#/$defs/info"
                         }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The systemInfo configuration node name",
+                          "const": "systemInfo"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/systemInfo"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The networkInfo configuration node name",
+                          "const": "networkInfo"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/networkInfo"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The protocolInfo configuration node name",
+                          "const": "protocolInfo"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/protocolInfo"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The sensors configuration node name",
+                          "const": "sensors"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/sensors"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The motion configuration node name",
+                          "const": "motion"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/motion"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The light configuration node name",
+                          "const": "light"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/light"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The temperature configuration node name",
+                          "const": "temperature"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/temperature"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The led configuration node name",
+                          "const": "led"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/led"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The user configuration node name",
+                          "const": "user"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/user"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The network configuration node name",
+                          "const": "network"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/network"
+                        }
+                      },
+                      {
+                        "name": {
+                          "type": "string",
+                          "description": "The protocols configuration node name",
+                          "const": "protocols"
+                        },
+                        "config": {
+                          "$ref": "#/$defs/protocols"
+                        }
+                      }
+                    ]
+                  },
+                  "required": [
+                    "name",
+                    "config"
+                  ]
+                }
+              }
+            },
+            {
+              "description": "Methods",
+              "properties": {
+                "method": {
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "const": "identify",
+                      "description": "Enable/disable blinking of LED indicator."
                     },
-                    "required": [
-                        "error"
-                    ]
+                    {
+                      "const": "reboot",
+                      "description": "Reboot the device"
+                    },
+                    {
+                      "const": "factory_default",
+                      "description": "Reset the device to factory defaults and reboot"
+                    },
+                    {
+                      "const": "help",
+                      "description": "Enumerate the available set/get nodes or method calls"
+                    }
+                  ]
                 }
-            ]
-        }
-    ],
-    "$defs": {
-        "info": {
-            "type": "object",
-            "description": "General device information.",
-            "properties": {
-                "deviceInfo": {
-                    "$ref": "#/$defs/deviceInfo",
-                    "readOnly": true
-                },
-                "systemInfo": {
-                    "$ref": "#/$defs/systemInfo"
-                },
-                "hardwareInfo": {
-                    "$ref": "#/$defs/hardwareInfo"
-                },
-                "networkInfo": {
-                    "$ref": "#/$defs/networkInfo"
-                },
-                "protocolInfo": {
-                    "$ref": "#/$defs/protocolInfo"
-                }
+              }
             }
+          ]
         },
-        "deviceInfo": {
-            "type": "object",
-            "description": "General device information.",
-            "readOnly": true,
-            "properties": {
-                "model": {
-                    "type": "string",
-                    "const": "AT-OCS-900N",
-                    "description": "The model name of the device."
+        {
+          "type": "object",
+          "description": "A response to a get/set/method request",
+          "properties": {
+            "error": {
+              "type": "boolean",
+              "description": "Present in all replies, true if there was a problem with the request"
+            },
+            "error_message": {
+              "type": "string",
+              "description": "Description of the problem with the request. Present if \"error\" is true on basic level errors"
+            },
+            "id": {
+              "type": "string",
+              "description": "User-supplied string to identify the request, returns the value supplied by the request"
+            },
+            "config": {
+              "anyOf": [
+                {
+                  "info": {
+                    "$ref": "#/$defs/info"
+                  }
                 },
-                "hardwareRevision": {
-                    "type": "string",
-                    "readOnly": true,
-                    "description": "The hardware revision of the device.",
-                    "examples": [
-                        "A",
-                        "B"
-                    ]
+                {
+                  "deviceInfo": {
+                    "$ref": "#/$defs/deviceInfo"
+                  }
                 },
-                "serialNumber": {
-                    "type": "string",
-                    "readOnly": true,
-                    "minLength": 19,
-                    "maxLength": 19,
-                    "description": "The serial number of the device.",
-                    "examples": [
-                        "0710202102010000001",
-                        "0710202212310000256"
-                    ]
+                {
+                  "systemInfo": {
+                    "$ref": "#/$defs/systemInfo"
+                  }
                 },
-                "firmwareVersion": {
-                    "type": "string",
-                    "description": "Firmware version.",
-                    "readOnly": true,
-                    "examples": [
-                        "1.0.03"
-                    ]
+                {
+                  "hardwareInfo": {
+                    "$ref": "#/$defs/hardwareInfo"
+                  }
                 },
-                "uptime": {
-                    "type": "string",
-                    "description": "Elapsed time since device boot in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
-                    "readOnly": true,
-                    "examples": [
-                        "389:02:36:59"
-                    ]
+                {
+                  "networkInfo": {
+                    "$ref": "#/$defs/networkInfo"
+                  }
+                },
+                {
+                  "protocolInfo": {
+                    "$ref": "#/$defs/protocolInfo"
+                  }
+                },
+                {
+                  "sensors": {
+                    "$ref": "#/$defs/sensors"
+                  }
+                },
+                {
+                  "motion": {
+                    "$ref": "#/$defs/motion"
+                  }
+                },
+                {
+                  "light": {
+                    "$ref": "#/$defs/light"
+                  }
+                },
+                {
+                  "temperature": {
+                    "$ref": "#/$defs/temperature"
+                  }
+                },
+                {
+                  "led": {
+                    "$ref": "#/$defs/led"
+                  }
+                },
+                {
+                  "user": {
+                    "$ref": "#/$defs/user"
+                  }
+                },
+                {
+                  "network": {
+                    "$ref": "#/$defs/network"
+                  }
+                },
+                {
+                  "protocols": {
+                    "$ref": "#/$defs/protocols"
+                  }
                 }
+              ]
+            },
+            "reply": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/help_reply"
+                },
+                {
+                  "type": "string",
+                  "const": "Rebooting..."
+                },
+                {
+                  "type": "string",
+                  "const": "Resetting to Factory Default and Rebooting..."
+                }
+              ]
             }
+          },
+          "required": [
+            "error"
+          ]
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "info": {
+      "type": "object",
+      "description": "General device information.",
+      "properties": {
+        "deviceInfo": {
+          "$ref": "#/$defs/deviceInfo",
+          "readOnly": true
         },
         "systemInfo": {
-            "type": "object",
-            "description": "General system information.",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "User editable device name",
-                    "examples": [
-                        "Sensor"
-                    ]
-                },
-                "location": {
-                    "type": "string",
-                    "description": "User editable device location",
-                    "examples": [
-                        "Executive Conference Room",
-                        "Divisible Room"
-                    ]
-                }
-            }
+          "$ref": "#/$defs/systemInfo"
         },
         "hardwareInfo": {
-            "type": "object",
-            "description": "Sensors & Indicators information.",
-            "readOnly": true,
-            "properties": {
-                "sensors": {
-                    "$ref": "#/$defs/sensors"
-                },
-                "led": {
-                    "$ref": "#/$defs/led"
-                }
-            }
-        },
-        "sensors": {
-            "type": "object",
-            "description": "Sensors information.",
-            "properties": {
-                "motion": {
-                    "$ref": "#/$defs/motion"
-                },
-                "light": {
-                    "$ref": "#/$defs/light"
-                },
-                "temperature": {
-                    "$ref": "#/$defs/temperature"
-                }
-            }
-        },
-        "motion": {
-            "type": "object",
-            "description": "Motion sensor information.",
-            "properties": {
-                "detected": {
-                    "type": "boolean",
-                    "description": "Is motion detected?",
-                    "default": false,
-                    "readOnly": true
-                },
-                "lastDetection": {
-                    "type": "string",
-                    "description": "Elapsed time since last detection in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
-                    "readOnly": true,
-                    "examples": [
-                        "389:02:36:59"
-                    ]
-                },
-                "activeDelay": {
-                    "type": "integer",
-                    "description": "Time in seconds before triggering motion detection.",
-                    "default": 3,
-                    "minimum": 0,
-                    "maximum": 255
-                },
-				"noDelay": {
-                    "type": "integer",
-                    "description": "Time in minutes before triggering no motion detection.",
-                    "default": 3,
-                    "minimum": 0,
-                    "maximum": 255
-                }
-            }
-        },
-        "light": {
-            "type": "object",
-            "description": "Light sensor information.",
-            "properties": {
-                "values": {
-                    "type": "object",
-                    "description": "Light sensor values",
-                    "readOnly": true,
-                    "white": {
-                        "$ref": "#/$defs/ADC",
-                        "maximum": 65535,
-                        "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
-                    },
-                    "red": {
-                        "$ref": "#/$defs/ADC",
-                        "maximum": 65535,
-                        "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
-                    },
-                    "green": {
-                        "$ref": "#/$defs/ADC",
-                        "maximum": 65535,
-                        "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
-                    },
-                    "blue": {
-                        "$ref": "#/$defs/ADC",
-                        "maximum": 65535,
-                        "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
-                    }
-                },
-                "sensitivity": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 5,
-                    "default": 3,
-                    "description": "Sensitivity of Light sensor."
-                },
-                "events": {
-                    "$ref": "#/$defs/events",
-                    "properties": {
-                        "unit": {
-                            "const": "ADC"
-                        },
-                        "threshold": {
-                            "description": "The required amount of the White sensor's ADC value change to trigger an event to subscribers.",
-                            "multipleOf": 1,
-                            "maximum": 65535,
-                            "default": 300
-                        }
-                    }
-                }
-            }
-        },
-        "ADC": {
-            "type": "integer",
-            "minimum": 0,
-            "readOnly": true,
-            "description": "Decimal representation of Analog to Digital Converter."
-        },
-        "temperature": {
-            "type": "object",
-            "description": "Temperature sensor information.",
-            "properties": {
-                "values": {
-                    "type": "object",
-                    "description": "The ADC, Fahrenheit, and Celsius values of the temperature sensor.",
-                    "readOnly": true,
-                    "properties": {
-                        "ADC": {
-                            "$ref": "#/$defs/ADC",
-                            "maximum": 4096,
-                            "description": "12-bit decimal representation of Temperature Sensor Analog to Digital Converter."
-                        },
-                        "F": {
-                            "type": "number",
-                            "multipleOf": 0.1,
-                            "description": "Temperature Sensor value in degrees Fahrenheit."
-                        },
-                        "C": {
-                            "type": "number",
-                            "multipleOf": 0.1,
-                            "description": "Temperature Sensor value in degrees Fahrenheit."
-                        }
-                    }
-                },
-                "events": {
-                    "$ref": "#/$defs/events",
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "F",
-                                "C"
-                            ],
-                            "default": "F"
-                        },
-                        "threshold": {
-                            "threshold": {
-                                "description": "The required amount of temperature value change to trigger an event to subscribers.",
-                                "multipleOf": 1,
-                                "minimum": 1,
-                                "maximum": 20,
-                                "default": 3
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "events": {
-            "type": "object",
-            "description": "Subscriber event trigger definitions.",
-            "properties": {
-                "unit": {
-                    "type": "string",
-                    "description": "Units for threshold value.",
-                    "enum": [
-                        "F",
-                        "C"
-                    ]
-                },
-                "threshold": {
-                    "type": "number",
-                    "minimum": 0,
-                    "description": "The required amount of change to trigger an event to subscribers."
-                }
-            }
-        },
-        "led": {
-            "type": "object",
-            "description": "LED Indicator information.",
-            "properties": {
-                "rgb": {
-                    "description": "Current LED status.  * If setting value and auto is true, value will be overridden by motion event",
-                    "$ref": "#/$defs/rgb"
-                },
-                "center": {
-                    "$ref": "#/$defs/enabled",
-                    "description": "Center LED enabled/disabled."
-                },
-                "outer": {
-                    "$ref": "#/$defs/enabled",
-                    "description": "Outer LED enabled/disabled."
-                },
-                "auto": {
-                    "type": "boolean",
-                    "description": "Toggle LED indicator auto/manual.\n  * True: LED indicator is controlled by motion.\n  * False: LED indicator is not controlled by motion. Indicator will power up to motionFalse value",
-                    "default": true
-                },
-                "motionTrue": {
-                    "description": "LED color when motion is detected.",
-                    "$ref": "#/$defs/rgb"
-                },
-                "motionFalse": {
-                    "description": "LED color when motion is not detected.",
-                    "$ref": "#/$defs/rgb"
-                }
-            },
-            "allOf": [
-                {
-                    "if": {
-                        "properties": {
-                            "center": {
-                                "const": true
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "outer": {
-                                "const": false
-                            }
-                        }
-                    },
-                    "else": {
-                        "properties": {
-                            "outer": {
-                                "const": true
-                            }
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "outer": {
-                                "const": true
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "center": {
-                                "const": false
-                            }
-                        }
-                    },
-                    "else": {
-                        "properties": {
-                            "center": {
-                                "const": true
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        "color": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "description": "8-bit HEX representation of LED intensity for either red, green, or blue color.",
-                    "pattern": "[0-9a-fA-F]{2}",
-                    "examples": [
-                        "FF",
-                        "a6"
-                    ]
-                },
-                {
-                    "type": "integer",
-                    "Description": "8-bit decimal representation of LED intensity for either red, green, or blue color.",
-                    "minimum": 0,
-                    "maximum": 255
-                }
-            ]
-        },
-        "colors": {
-            "oneOf": [
-                {
-                    "type": "object",
-                    "description": "Separate Red, Green, and Blue color properties.",
-                    "properties": {
-                        "red": {
-                            "$ref": "#/$defs/color"
-                        },
-                        "green": {
-                            "$ref": "#/$defs/color"
-                        },
-                        "blue": {
-                            "$ref": "#/$defs/color"
-                        }
-                    }
-                },
-                {
-                    "type": "string",
-                    "description": "Red, Green, and Blue colors as a single property.",
-                    "$ref": "#/$defs/rgb"
-                }
-            ]
-        },
-        "rgb": {
-            "type": "string",
-            "oneOf": [
-                {
-                    "pattern": "#*([0-9a-fA-F]{6})",
-                    "description": "RGB color represented as HEX.",
-                    "examples": [
-                        "#FF6633",
-                        "ff6633"
-                    ]
-                },
-                {
-                    "description": "RGB color represented as decimal.",
-                    "pattern": "(\\(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\))",
-                    "examples": [
-                        "(0,1,255)",
-                        "(10,199,234)"
-                    ]
-                }
-            ]
+          "$ref": "#/$defs/hardwareInfo"
         },
         "networkInfo": {
-            "$ref": "#/$defs/network"
-        },
-        "user": {
-            "type": "object",
-            "description": "The user account.",
-            "properties": {
-                "username": {
-                    "type": "string",
-                    "description": "System login username.",
-                    "default": "admin"
-                },
-                "password": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "description": "System login password. This can be used to set a password, but the password can never be read again."
-                },
-                "passwordHash": {
-                    "type": "string",
-                    "description": "The hashed System login password.",
-                    "readOnly": true
-                }
-            },
-            "required": [
-                "username",
-                "password"
-            ]
-        },
-        "network": {
-            "type": "object",
-            "description": "Network settings.",
-            "properties": {
-                "macAddress": {
-                    "type": "string",
-                    "description": "MAC address.",
-                    "readOnly": true,
-                    "examples": [
-                        "B8:98:B0:00:9A:FF"
-                    ]
-                },
-                "hostname": {
-                    "type": "string",
-                    "description": "Device hostname.",
-                    "examples": [
-                        "OCS-900N-0201B9",
-                        "ConfRm102-Sensor"
-                    ],
-                    "minLength": 2,
-                    "maxLength": 16
-                },
-                "tls": {
-                    "type": "boolean",
-                    "description": "TLS enabled/disabled for websocket/webserver connections.",
-                    "default": true
-                },
-                "ipSettings": {
-                    "$ref": "#/$defs/ipSettings"
-                }
-            }
-        },
-        "ipSettings": {
-            "type": "object",
-            "description": "IP settings.",
-            "properties": {
-                "dhcp": {
-                    "type": "boolean",
-                    "description": "Toggle DHCP/Static.\n  * True: DHCP\n  * False: Static",
-                    "default": true
-                },
-                "ip": {
-                    "type": "string",
-                    "format": "ipv4",
-                    "description": "Device IPv4 address.",
-                    "default": "192.168.1.254",
-                    "examples": [
-                        "192.168.1.254",
-                        "10.1.1.1"
-                    ]
-                },
-                "netmask": {
-                    "type": "string",
-                    "format": "ipv4",
-                    "description": "Subnet Mask.",
-                    "default": "255.255.255.0",
-                    "examples": [
-                        "255.255.255.0",
-                        "255.255.254.0"
-                    ]
-                },
-                "gateway": {
-                    "type": "string",
-                    "format": "ipv4",
-                    "description": "Default Gateway IPv4 address.",
-                    "default": "192.168.1.1",
-                    "examples": [
-                        "192.168.1.1",
-                        "10.1.1.1"
-                    ]
-                },
-                "dns": {
-                    "type": "object",
-                    "description": "DNS settings.",
-                    "properties": {
-                        "primary": {
-                            "type": "string",
-                            "format": "ipv4",
-                            "description": "Primary DNS IPv4 address.",
-                            "default": "",
-                            "examples": [
-                                "192.168.1.1",
-                                "10.1.1.1"
-                            ]
-                        },
-                        "secondary": {
-                            "type": "string",
-                            "format": "ipv4",
-                            "description": "Secondary DNS IPv4 address.",
-                            "default": "",
-                            "examples": [
-                                "192.168.1.1",
-                                "10.1.1.1"
-                            ]
-                        }
-                    }
-                },
-                "if": {
-                    "properties": {
-                        "dhcp": {
-                            "const": true
-                        }
-                    }
-                },
-                "then": {
-                    "properties": {
-                        "ip": {
-                            "readOnly": true
-                        },
-                        "netmask": {
-                            "readOnly": true
-                        },
-                        "gateway": {
-                            "readOnly": true
-                        }
-                    }
-                }
-            }
+          "$ref": "#/$defs/networkInfo"
         },
         "protocolInfo": {
-            "type": "object",
-            "description": "Protocol information.",
-            "properties": {
-                "tcp": {
-                    "type": "boolean",
-                    "description": "TCP enable/disable",
-                    "default": true
-                },
-                "udp": {
-                    "type": "boolean",
-                    "description": "UDP enable/disable",
-                    "default": true
-                },
-                "ws": {
-                    "type": "boolean",
-                    "description": "WebSockets enable/disable",
-                    "default": true
-                },
-                "mqtt": {
-                    "type": "boolean",
-                    "description": "MQTT enable/disable",
-                    "default": false
-                }
-            }
+          "$ref": "#/$defs/protocolInfo"
+        }
+      }
+    },
+    "deviceInfo": {
+      "type": "object",
+      "description": "General device information.",
+      "readOnly": true,
+      "properties": {
+        "model": {
+          "type": "string",
+          "const": "AT-OCS-900N",
+          "description": "The model name of the device."
         },
-        "protocols": {
-            "type": "object",
-            "description": "The communication protocols on the device.",
-            "properties": {
-                "tcp": {
-                    "$ref": "#/$defs/protocol",
-                    "properties": {
-                        "enabled": {
-                            "$ref": "#/$defs/enabled"
-                        },
-                        "port": {
-                            "default": 9000
-                        }
-                    }
-                },
-                "udp": {
-                    "$ref": "#/$defs/protocol",
-                    "properties": {
-                        "enabled": {
-                            "$ref": "#/$defs/enabled"
-                        },
-                        "port": {
-                            "default": 9000
-                        },
-                        "subscribers": {
-                            "$ref": "#/$defs/subscribers"
-                        }
-                    }
-                },
-                "ws": {
-                    "$ref": "#/$defs/protocol",
-                    "properties": {
-                        "enabled": {
-                            "$ref": "#/$defs/enabled"
-                        },
-                        "port": {
-                            "$ref": "#/$defs/port",
-                            "readOnly": true,
-                            "description": "Port Number websockets available if enabled.  Value is set by TLS enable.",
-                            "default": "443"
-                        }
-                    }
-                },
-                "mqtt": {
-                    "$ref": "#/$defs/mqtt"
-                }
+        "hardwareRevision": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The hardware revision of the device.",
+          "examples": [
+            "A",
+            "B"
+          ]
+        },
+        "serialNumber": {
+          "type": "string",
+          "readOnly": true,
+          "minLength": 19,
+          "maxLength": 19,
+          "description": "The serial number of the device.",
+          "examples": [
+            "0710202102010000001",
+            "0710202212310000256"
+          ]
+        },
+        "firmwareVersion": {
+          "type": "string",
+          "description": "Firmware version.",
+          "readOnly": true,
+          "examples": [
+            "1.0.03"
+          ]
+        },
+        "uptime": {
+          "type": "string",
+          "description": "Elapsed time since device boot in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
+          "readOnly": true,
+          "examples": [
+            "389:02:36:59"
+          ]
+        }
+      }
+    },
+    "systemInfo": {
+      "type": "object",
+      "description": "General system information.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User editable device name",
+          "examples": [
+            "Sensor"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "User editable device location",
+          "examples": [
+            "Executive Conference Room",
+            "Divisible Room"
+          ]
+        }
+      }
+    },
+    "hardwareInfo": {
+      "type": "object",
+      "description": "Sensors & Indicators information.",
+      "readOnly": true,
+      "properties": {
+        "sensors": {
+          "$ref": "#/$defs/sensors"
+        },
+        "led": {
+          "$ref": "#/$defs/led"
+        }
+      }
+    },
+    "sensors": {
+      "type": "object",
+      "description": "Sensors information.",
+      "properties": {
+        "motion": {
+          "$ref": "#/$defs/motion"
+        },
+        "light": {
+          "$ref": "#/$defs/light"
+        },
+        "temperature": {
+          "$ref": "#/$defs/temperature"
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "description": "Motion sensor information.",
+      "properties": {
+        "detected": {
+          "type": "boolean",
+          "description": "Is motion detected?",
+          "default": false,
+          "readOnly": true
+        },
+        "lastDetection": {
+          "type": "string",
+          "description": "Elapsed time since last detection in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
+          "readOnly": true,
+          "examples": [
+            "389:02:36:59"
+          ]
+        },
+        "activeDelay": {
+          "type": "integer",
+          "description": "Time in seconds before triggering motion detection.",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 255
+        },
+        "noDelay": {
+          "type": "integer",
+          "description": "Time in minutes before triggering no motion detection.",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    },
+    "light": {
+      "type": "object",
+      "description": "Light sensor information.",
+      "properties": {
+        "values": {
+          "type": "object",
+          "description": "Light sensor values",
+          "readOnly": true,
+          "white": {
+            "$ref": "#/$defs/ADC",
+            "maximum": 65535,
+            "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
+          },
+          "red": {
+            "$ref": "#/$defs/ADC",
+            "maximum": 65535,
+            "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
+          },
+          "green": {
+            "$ref": "#/$defs/ADC",
+            "maximum": 65535,
+            "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
+          },
+          "blue": {
+            "$ref": "#/$defs/ADC",
+            "maximum": 65535,
+            "description": "16-bit decimal representation of White Light Sensor Analog to Digital Converter."
+          }
+        },
+        "sensitivity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "default": 3,
+          "description": "Sensitivity of Light sensor."
+        },
+        "events": {
+          "$ref": "#/$defs/events",
+          "properties": {
+            "unit": {
+              "const": "ADC"
+            },
+            "threshold": {
+              "description": "The required amount of the White sensor's ADC value change to trigger an event to subscribers.",
+              "multipleOf": 1,
+              "maximum": 65535,
+              "default": 300
             }
+          }
+        }
+      }
+    },
+    "ADC": {
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true,
+      "description": "Decimal representation of Analog to Digital Converter."
+    },
+    "temperature": {
+      "type": "object",
+      "description": "Temperature sensor information.",
+      "properties": {
+        "values": {
+          "type": "object",
+          "description": "The ADC, Fahrenheit, and Celsius values of the temperature sensor.",
+          "readOnly": true,
+          "properties": {
+            "ADC": {
+              "$ref": "#/$defs/ADC",
+              "maximum": 4096,
+              "description": "12-bit decimal representation of Temperature Sensor Analog to Digital Converter."
+            },
+            "F": {
+              "type": "number",
+              "multipleOf": 0.1,
+              "description": "Temperature Sensor value in degrees Fahrenheit."
+            },
+            "C": {
+              "type": "number",
+              "multipleOf": 0.1,
+              "description": "Temperature Sensor value in degrees Fahrenheit."
+            }
+          }
+        },
+        "events": {
+          "$ref": "#/$defs/events",
+          "properties": {
+            "unit": {
+              "enum": [
+                "F",
+                "C"
+              ],
+              "default": "F"
+            },
+            "threshold": {
+              "threshold": {
+                "description": "The required amount of temperature value change to trigger an event to subscribers.",
+                "multipleOf": 1,
+                "minimum": 1,
+                "maximum": 20,
+                "default": 3
+              }
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "description": "Subscriber event trigger definitions.",
+      "properties": {
+        "unit": {
+          "type": "string",
+          "description": "Units for threshold value.",
+          "enum": [
+            "F",
+            "C"
+          ]
+        },
+        "threshold": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The required amount of change to trigger an event to subscribers."
+        }
+      }
+    },
+    "led": {
+      "type": "object",
+      "description": "LED Indicator information.",
+      "properties": {
+        "rgb": {
+          "description": "Current LED status.  * If setting value and auto is true, value will be overridden by motion event",
+          "$ref": "#/$defs/rgb"
+        },
+        "center": {
+          "$ref": "#/$defs/enabled",
+          "description": "Center LED enabled/disabled."
+        },
+        "outer": {
+          "$ref": "#/$defs/enabled",
+          "description": "Outer LED enabled/disabled."
+        },
+        "auto": {
+          "type": "boolean",
+          "description": "Toggle LED indicator auto/manual.\n  * True: LED indicator is controlled by motion.\n  * False: LED indicator is not controlled by motion. Indicator will power up to motionFalse value",
+          "default": true
+        },
+        "motionTrue": {
+          "description": "LED color when motion is detected.",
+          "$ref": "#/$defs/rgb"
+        },
+        "motionFalse": {
+          "description": "LED color when motion is not detected.",
+          "$ref": "#/$defs/rgb"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "center": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "outer": {
+                "const": false
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "outer": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outer": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "center": {
+                "const": false
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "center": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "color": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "8-bit HEX representation of LED intensity for either red, green, or blue color.",
+          "pattern": "[0-9a-fA-F]{2}",
+          "examples": [
+            "FF",
+            "a6"
+          ]
+        },
+        {
+          "type": "integer",
+          "Description": "8-bit decimal representation of LED intensity for either red, green, or blue color.",
+          "minimum": 0,
+          "maximum": 255
+        }
+      ]
+    },
+    "colors": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Separate Red, Green, and Blue color properties.",
+          "properties": {
+            "red": {
+              "$ref": "#/$defs/color"
+            },
+            "green": {
+              "$ref": "#/$defs/color"
+            },
+            "blue": {
+              "$ref": "#/$defs/color"
+            }
+          }
+        },
+        {
+          "type": "string",
+          "description": "Red, Green, and Blue colors as a single property.",
+          "$ref": "#/$defs/rgb"
+        }
+      ]
+    },
+    "rgb": {
+      "type": "string",
+      "oneOf": [
+        {
+          "pattern": "#*([0-9a-fA-F]{6})",
+          "description": "RGB color represented as HEX.",
+          "examples": [
+            "#FF6633",
+            "ff6633"
+          ]
+        },
+        {
+          "description": "RGB color represented as decimal.",
+          "pattern": "(\\(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\))",
+          "examples": [
+            "(0,1,255)",
+            "(10,199,234)"
+          ]
+        }
+      ]
+    },
+    "networkInfo": {
+      "$ref": "#/$defs/network"
+    },
+    "user": {
+      "type": "object",
+      "description": "The user account.",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "System login username.",
+          "default": "admin"
+        },
+        "password": {
+          "type": "string",
+          "writeOnly": true,
+          "description": "System login password. This can be used to set a password, but the password can never be read again."
+        },
+        "passwordHash": {
+          "type": "string",
+          "description": "The hashed System login password.",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    "network": {
+      "type": "object",
+      "description": "Network settings.",
+      "properties": {
+        "macAddress": {
+          "type": "string",
+          "description": "MAC address.",
+          "readOnly": true,
+          "examples": [
+            "B8:98:B0:00:9A:FF"
+          ]
+        },
+        "hostname": {
+          "type": "string",
+          "description": "Device hostname.",
+          "examples": [
+            "OCS-900N-0201B9",
+            "ConfRm102-Sensor"
+          ],
+          "minLength": 2,
+          "maxLength": 16
+        },
+        "tls": {
+          "type": "boolean",
+          "description": "TLS enabled/disabled for websocket/webserver connections.",
+          "default": true
+        },
+        "ipSettings": {
+          "$ref": "#/$defs/ipSettings"
+        }
+      }
+    },
+    "ipSettings": {
+      "type": "object",
+      "description": "IP settings.",
+      "properties": {
+        "dhcp": {
+          "type": "boolean",
+          "description": "Toggle DHCP/Static.\n  * True: DHCP\n  * False: Static",
+          "default": true
+        },
+        "ip": {
+          "type": "string",
+          "format": "ipv4",
+          "description": "Device IPv4 address.",
+          "default": "192.168.1.254",
+          "examples": [
+            "192.168.1.254",
+            "10.1.1.1"
+          ]
+        },
+        "netmask": {
+          "type": "string",
+          "format": "ipv4",
+          "description": "Subnet Mask.",
+          "default": "255.255.255.0",
+          "examples": [
+            "255.255.255.0",
+            "255.255.254.0"
+          ]
+        },
+        "gateway": {
+          "type": "string",
+          "format": "ipv4",
+          "description": "Default Gateway IPv4 address.",
+          "default": "192.168.1.1",
+          "examples": [
+            "192.168.1.1",
+            "10.1.1.1"
+          ]
+        },
+        "dns": {
+          "type": "object",
+          "description": "DNS settings.",
+          "properties": {
+            "primary": {
+              "type": "string",
+              "format": "ipv4",
+              "description": "Primary DNS IPv4 address.",
+              "default": "",
+              "examples": [
+                "192.168.1.1",
+                "10.1.1.1"
+              ]
+            },
+            "secondary": {
+              "type": "string",
+              "format": "ipv4",
+              "description": "Secondary DNS IPv4 address.",
+              "default": "",
+              "examples": [
+                "192.168.1.1",
+                "10.1.1.1"
+              ]
+            }
+          }
+        },
+        "if": {
+          "properties": {
+            "dhcp": {
+              "const": true
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "ip": {
+              "readOnly": true
+            },
+            "netmask": {
+              "readOnly": true
+            },
+            "gateway": {
+              "readOnly": true
+            }
+          }
+        }
+      }
+    },
+    "protocolInfo": {
+      "type": "object",
+      "description": "Protocol information.",
+      "properties": {
+        "tcp": {
+          "type": "boolean",
+          "description": "TCP enable/disable",
+          "default": true
+        },
+        "udp": {
+          "type": "boolean",
+          "description": "UDP enable/disable",
+          "default": true
+        },
+        "ws": {
+          "type": "boolean",
+          "description": "WebSockets enable/disable",
+          "default": true
         },
         "mqtt": {
-            "properties": {
-                "enabled": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                },
-                "connection": {
-                    "type": "object",
-                    "properties": {
-                        "broker": {
-                            "type": "string",
-                            "description": "MQTT Broker.",
-                            "default": "mqtt.eclipse.org"
-                        },
-                        "port": {
-                            "$ref": "#/$defs/port",
-                            "default": "1883"
-                        },
-                        "clientId": {
-                            "type": "string",
-                            "description": "MQTT client ID.\nDefault: device hostname."
-                        },
-                        "keepAlive": {
-                            "type": "integer",
-                            "description": "MQTT keepalive.",
-                            "minimum": 0,
-                            "maximum": 65535,
-                            "default": 60
-                        },
-                        "cleanSession": {
-                            "$ref": "#/$defs/enabled",
-                            "default": false
-                        }
-                    }
-                },
-                "authentication": {
-                    "$ref": "#/$defs/authentication"
-                },
-                "lwt": {
-                    "type": "object",
-                    "properties": {
-                        "topic": {
-                            "$ref": "#/$defs/topic"
-                        },
-                        "qos": {
-                            "$ref": "#/$defs/qos"
-                        },
-                        "message": {
-                            "type": "string",
-                            "description": "MQTT Last Will and Testament.",
-                            "default": ""
-                        }
-                    }
-                },
-                "publishTopics": {
-                    "type": "object",
-                    "properties": {
-                        "motion": {
-                            "$ref": "#/$defs/publishTopic",
-                            "description": "Motion Sensor MQTT Publish Topic."
-                        },
-                        "light": {
-                            "$ref": "#/$defs/publishTopic",
-                            "description": "Light Sensor MQTT Publish Topic."
-                        },
-                        "temperature": {
-                            "$ref": "#/$defs/publishTopic",
-                            "description": "Temperature Sensor MQTT Publish Topic."
-                        }
-                    }
-                }
+          "type": "boolean",
+          "description": "MQTT enable/disable",
+          "default": false
+        }
+      }
+    },
+    "protocols": {
+      "type": "object",
+      "description": "The communication protocols on the device.",
+      "properties": {
+        "tcp": {
+          "$ref": "#/$defs/protocol",
+          "properties": {
+            "enabled": {
+              "$ref": "#/$defs/enabled"
+            },
+            "port": {
+              "default": 9000
             }
+          }
         },
-        "publishTopic": {
-            "type": "object",
-            "description": "MQTT Publish Topic definitions.",
-            "properties": {
-                "enabled": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                },
-                "topic": {
-                    "$ref": "#/$defs/topic"
-                },
-                "qos": {
-                    "$ref": "#/$defs/qos"
-                }
+        "udp": {
+          "$ref": "#/$defs/protocol",
+          "properties": {
+            "enabled": {
+              "$ref": "#/$defs/enabled"
+            },
+            "port": {
+              "default": 9000
+            },
+            "subscribers": {
+              "$ref": "#/$defs/subscribers"
             }
+          }
         },
-        "subscribers": {
-            "type": "object",
-            "description": "UDP subscribers",
-            "properties": {
-                "1": {
-                    "$ref": "#/$defs/subscriber"
-                },
-                "2": {
-                    "$ref": "#/$defs/subscriber"
-                },
-                "3": {
-                    "$ref": "#/$defs/subscriber"
-                },
-                "4": {
-                    "$ref": "#/$defs/subscriber"
-                },
-                "5": {
-                    "$ref": "#/$defs/subscriber"
-                }
+        "ws": {
+          "$ref": "#/$defs/protocol",
+          "properties": {
+            "enabled": {
+              "$ref": "#/$defs/enabled"
+            },
+            "port": {
+              "$ref": "#/$defs/port",
+              "readOnly": true,
+              "description": "Port Number websockets available if enabled.  Value is set by TLS enable.",
+              "default": "443"
             }
+          }
         },
-        "subscriber": {
-            "type": "object",
-            "description": "Subscriber information.",
-            "properties": {
-                "enabled": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                },
-                "ip": {
-                    "$ref": "#/$defs/ipSettings/properties/ip"
-                },
-                "port": {
-                    "$ref": "#/$defs/port",
-                    "default": ""
-                },
-                "motion": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                },
-                "light": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                },
-                "temperature": {
-                    "$ref": "#/$defs/enabled",
-                    "default": false
-                }
-            }
-        },
-        "topic": {
-            "type": "string",
-            "description": "MQTT topic.",
-            "default": ""
-        },
-        "qos": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 2,
-            "description": "Quality of Service settings.",
-            "default": 0
-        },
-        "protocol": {
-            "type": "object",
-            "description": "Properties common to control protocols.",
-            "properties": {
-                "enabled": {
-                    "$ref": "#/$defs/enabled"
-                },
-                "port": {
-                    "$ref": "#/$defs/port"
-                }
-            }
-        },
+        "mqtt": {
+          "$ref": "#/$defs/mqtt"
+        }
+      }
+    },
+    "mqtt": {
+      "properties": {
         "enabled": {
-            "type": "boolean",
-            "description": "Toggle feature enabled/disabled.\n  * True: enabled.\n  * False: disabled.",
-            "default": true
+          "$ref": "#/$defs/enabled",
+          "default": false
+        },
+        "connection": {
+          "type": "object",
+          "properties": {
+            "broker": {
+              "type": "string",
+              "description": "MQTT Broker.",
+              "default": "mqtt.eclipse.org"
+            },
+            "port": {
+              "$ref": "#/$defs/port",
+              "default": "1883"
+            },
+            "clientId": {
+              "type": "string",
+              "description": "MQTT client ID.\nDefault: device hostname."
+            },
+            "keepAlive": {
+              "type": "integer",
+              "description": "MQTT keepalive.",
+              "minimum": 0,
+              "maximum": 65535,
+              "default": 60
+            },
+            "cleanSession": {
+              "$ref": "#/$defs/enabled",
+              "default": false
+            }
+          }
         },
         "authentication": {
-            "type": "object",
-            "description": "Authentication definitions.",
-            "properties": {
-                "enabled": {
-                    "$ref": "#/$defs/enabled"
-                },
-                "username": {
-                    "type": "string",
-                    "description": "MQTT authentication username.",
-                    "default": "default"
-                },
-                "password": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "description": "MQTT authentication password. This can be used to set a password, but the password can never be read again."
-                },
-                "passwordHash": {
-                    "type": "string",
-                    "description": "The hashed MQTT login password.",
-                    "readOnly": true
-                }
+          "$ref": "#/$defs/authentication"
+        },
+        "lwt": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "$ref": "#/$defs/topic"
+            },
+            "qos": {
+              "$ref": "#/$defs/qos"
+            },
+            "message": {
+              "type": "string",
+              "description": "MQTT Last Will and Testament.",
+              "default": ""
             }
+          }
+        },
+        "publishTopics": {
+          "type": "object",
+          "properties": {
+            "motion": {
+              "$ref": "#/$defs/publishTopic",
+              "description": "Motion Sensor MQTT Publish Topic."
+            },
+            "light": {
+              "$ref": "#/$defs/publishTopic",
+              "description": "Light Sensor MQTT Publish Topic."
+            },
+            "temperature": {
+              "$ref": "#/$defs/publishTopic",
+              "description": "Temperature Sensor MQTT Publish Topic."
+            }
+          }
+        }
+      }
+    },
+    "publishTopic": {
+      "type": "object",
+      "description": "MQTT Publish Topic definitions.",
+      "properties": {
+        "enabled": {
+          "$ref": "#/$defs/enabled",
+          "default": false
+        },
+        "topic": {
+          "$ref": "#/$defs/topic"
+        },
+        "qos": {
+          "$ref": "#/$defs/qos"
+        }
+      }
+    },
+    "subscribers": {
+      "type": "object",
+      "description": "UDP subscribers",
+      "properties": {
+        "1": {
+          "$ref": "#/$defs/subscriber"
+        },
+        "2": {
+          "$ref": "#/$defs/subscriber"
+        },
+        "3": {
+          "$ref": "#/$defs/subscriber"
+        },
+        "4": {
+          "$ref": "#/$defs/subscriber"
+        },
+        "5": {
+          "$ref": "#/$defs/subscriber"
+        }
+      }
+    },
+    "subscriber": {
+      "type": "object",
+      "description": "Subscriber information.",
+      "properties": {
+        "enabled": {
+          "$ref": "#/$defs/enabled",
+          "default": false
+        },
+        "ip": {
+          "$ref": "#/$defs/ipSettings/properties/ip"
         },
         "port": {
-            "oneOf": [
-                {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 65535,
-                    "description": "The protocol port number."
-                },
-                {
-                    "type": "string",
-                    "const": ""
-                }
-            ]
+          "$ref": "#/$defs/port",
+          "default": ""
         },
-        "help_reply": {
-            "type": "object",
-            "description": "A list of set, get or methods available on this system",
-            "properties": {
-                "get": {
-                    "type": "array",
-                    "description": "A list of get nodes available on this system",
-                    "items": [
-                        {
-                            "type":"string",
-                            "const": "info"
-                        },
-                        {
-                            "type":"string",
-                            "const": "deviceInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "systemInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "hardwareInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "networkInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "protocolInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "sensors"
-                        },
-                        {
-                            "type":"string",
-                            "const": "motion"
-                        },
-                        {
-                            "type":"string",
-                            "const": "light"
-                        },
-                        {
-                            "type":"string",
-                            "const": "temperature"
-                        },
-                        {
-                            "type":"string",
-                            "const": "led"
-                        },
-                        {
-                            "type":"string",
-                            "const": "protocols"
-                        },
-                        {
-                            "type":"string",
-                            "const": "network"
-                        },
-                        {
-                            "type":"string",
-                            "const": "user"
-                        }
-                    ]
-                },
-                "set": {
-                    "type": "array",
-                    "description": "A list of get nodes available on this system",
-                    "items": [
-                        {
-                            "type":"string",
-                            "const": "info"
-                        },
-                        {
-                            "type":"string",
-                            "const": "systemInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "networkInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "protocolInfo"
-                        },
-                        {
-                            "type":"string",
-                            "const": "sensors"
-                        },
-                        {
-                            "type":"string",
-                            "const": "motion"
-                        },
-                        {
-                            "type":"string",
-                            "const": "light"
-                        },
-                        {
-                            "type":"string",
-                            "const": "temperature"
-                        },
-                        {
-                            "type":"string",
-                            "const": "led"
-                        },
-                        {
-                            "type":"string",
-                            "const": "protocols"
-                        },
-                        {
-                            "type":"string",
-                            "const": "network"
-                        },
-                        {
-                            "type":"string",
-                            "const": "user"
-                        }
-                    ]
-                },
-                "method": {
-                    "type": "array",
-                    "description": "A list of get nodes available on this system",
-                    "items": [
-                        {
-                            "type":"string",
-                            "const": "identify"
-                        },
-                        {
-                            "type":"string",
-                            "const": "reboot"
-                        },
-                        {
-                            "type":"string",
-                            "const": "factory_default"
-                        },
-                        {
-                            "type":"string",
-                            "const": "help"
-                        }
-                    ]
-                }
-            }
+        "motion": {
+          "$ref": "#/$defs/enabled",
+          "default": false
+        },
+        "light": {
+          "$ref": "#/$defs/enabled",
+          "default": false
+        },
+        "temperature": {
+          "$ref": "#/$defs/enabled",
+          "default": false
         }
+      }
+    },
+    "topic": {
+      "type": "string",
+      "description": "MQTT topic.",
+      "default": ""
+    },
+    "qos": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2,
+      "description": "Quality of Service settings.",
+      "default": 0
+    },
+    "protocol": {
+      "type": "object",
+      "description": "Properties common to control protocols.",
+      "properties": {
+        "enabled": {
+          "$ref": "#/$defs/enabled"
+        },
+        "port": {
+          "$ref": "#/$defs/port"
+        }
+      }
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Toggle feature enabled/disabled.\n  * True: enabled.\n  * False: disabled.",
+      "default": true
+    },
+    "authentication": {
+      "type": "object",
+      "description": "Authentication definitions.",
+      "properties": {
+        "enabled": {
+          "$ref": "#/$defs/enabled"
+        },
+        "username": {
+          "type": "string",
+          "description": "MQTT authentication username.",
+          "default": "default"
+        },
+        "password": {
+          "type": "string",
+          "writeOnly": true,
+          "description": "MQTT authentication password. This can be used to set a password, but the password can never be read again."
+        },
+        "passwordHash": {
+          "type": "string",
+          "description": "The hashed MQTT login password.",
+          "readOnly": true
+        }
+      }
+    },
+    "port": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535,
+          "description": "The protocol port number."
+        },
+        {
+          "type": "string",
+          "const": ""
+        }
+      ]
+    },
+    "help_reply": {
+      "type": "object",
+      "description": "A list of set, get or methods available on this system",
+      "properties": {
+        "get": {
+          "type": "array",
+          "description": "A list of get nodes available on this system",
+          "items": [
+            {
+              "type": "string",
+              "const": "info"
+            },
+            {
+              "type": "string",
+              "const": "deviceInfo"
+            },
+            {
+              "type": "string",
+              "const": "systemInfo"
+            },
+            {
+              "type": "string",
+              "const": "hardwareInfo"
+            },
+            {
+              "type": "string",
+              "const": "networkInfo"
+            },
+            {
+              "type": "string",
+              "const": "protocolInfo"
+            },
+            {
+              "type": "string",
+              "const": "sensors"
+            },
+            {
+              "type": "string",
+              "const": "motion"
+            },
+            {
+              "type": "string",
+              "const": "light"
+            },
+            {
+              "type": "string",
+              "const": "temperature"
+            },
+            {
+              "type": "string",
+              "const": "led"
+            },
+            {
+              "type": "string",
+              "const": "protocols"
+            },
+            {
+              "type": "string",
+              "const": "network"
+            },
+            {
+              "type": "string",
+              "const": "user"
+            }
+          ]
+        },
+        "set": {
+          "type": "array",
+          "description": "A list of get nodes available on this system",
+          "items": [
+            {
+              "type": "string",
+              "const": "info"
+            },
+            {
+              "type": "string",
+              "const": "systemInfo"
+            },
+            {
+              "type": "string",
+              "const": "networkInfo"
+            },
+            {
+              "type": "string",
+              "const": "protocolInfo"
+            },
+            {
+              "type": "string",
+              "const": "sensors"
+            },
+            {
+              "type": "string",
+              "const": "motion"
+            },
+            {
+              "type": "string",
+              "const": "light"
+            },
+            {
+              "type": "string",
+              "const": "temperature"
+            },
+            {
+              "type": "string",
+              "const": "led"
+            },
+            {
+              "type": "string",
+              "const": "protocols"
+            },
+            {
+              "type": "string",
+              "const": "network"
+            },
+            {
+              "type": "string",
+              "const": "user"
+            }
+          ]
+        },
+        "method": {
+          "type": "array",
+          "description": "A list of get nodes available on this system",
+          "items": [
+            {
+              "type": "string",
+              "const": "identify"
+            },
+            {
+              "type": "string",
+              "const": "reboot"
+            },
+            {
+              "type": "string",
+              "const": "factory_default"
+            },
+            {
+              "type": "string",
+              "const": "help"
+            }
+          ]
+        }
+      }
     }
+  }
 }
