@@ -1,5 +1,5 @@
 # AT-OCS-900N
-Files and resources for AT-OCS-900N development.
+Files and resources for the Atlona AT-OCS-900N.
 
 # Velocity Variables
 
