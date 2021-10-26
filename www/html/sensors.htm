@@ -1,0 +1,569 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PoE Multi-Function Sensor</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ff6633">
+    <meta name="msapplication-TileColor" content="#222222">
+    <meta name="theme-color" content="#222222">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/hamburger.css" rel="stylesheet" />
+    <script src="../js/updates.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div id="page">
+      <nav class="navbar navbar-dark sticky-top">
+        <div class="d-flex flex-wrap justify-content-between w-100 align-items-center">
+          <a href="/protect/dashboard.htm?sn=a1b2c3d4 id="logo-link" class="d-flex justify-content-center"><img id="logo" src="../img/atlona-orange-white.svg" alt="Atlona" align="left" /></a>
+          <button class="hamburger hamburger--collapse" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+          <h3 id="page-title">AT-OCS-900N</h3>
+          <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"><button class="btn logout-btn">
+              Log Out
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" fill="white" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+              </svg>
+            </button>
+            <!-- Implement log out feature on server side-->
+          </a>
+        </div>
+        <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+      </nav>
+      <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+      <div class="">
+        <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+        <div class="row cntrl-row">
+          <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+          <aside id="menu" class="col-2">
+            <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+            <div class="sidebar d-flex flex-column">
+              <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a>
+              <div class="py-2">
+                <a href="/protect/logout.htm?sn=a1b2c3d4 class="menu-link"> </a><a href="/protect/dashboard.htm?sn=a1b2c3d4 class="menu-link text-white d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                  </svg>
+                  Dashboard
+                </a>
+              </div>
+              <div class="py-2">
+                <a href="/protect/sensors.htm?sn=a1b2c3d4 class="menu-link primary d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="me-5" enable-background="new 0 0 24 24" height="24" fill="#ff6633" viewBox="0 0 24 24" width="24">
+                    <rect fill="none" height="24" width="24"></rect>
+                    <path d="M7.76,16.24C6.67,15.16,6,13.66,6,12s0.67-3.16,1.76-4.24l1.42,1.42C8.45,9.9,8,10.9,8,12c0,1.1,0.45,2.1,1.17,2.83 L7.76,16.24z M16.24,16.24C17.33,15.16,18,13.66,18,12s-0.67-3.16-1.76-4.24l-1.42,1.42C15.55,9.9,16,10.9,16,12 c0,1.1-0.45,2.1-1.17,2.83L16.24,16.24z M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z M20,12 c0,2.21-0.9,4.21-2.35,5.65l1.42,1.42C20.88,17.26,22,14.76,22,12s-1.12-5.26-2.93-7.07l-1.42,1.42C19.1,7.79,20,9.79,20,12z M6.35,6.35L4.93,4.93C3.12,6.74,2,9.24,2,12s1.12,5.26,2.93,7.07l1.42-1.42C4.9,16.21,4,14.21,4,12S4.9,7.79,6.35,6.35z"></path>
+                  </svg>
+                  <span>Sensors</span>
+                </a>
+              </div>
+              <div class="py-2">
+                <a href="/protect/protocols.htm?sn=a1b2c3d4 class="menu-link text-white d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="me-4" height="24" fill="white" viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                  </svg>
+                  Protocols
+                </a>
+              </div>
+              <div class="py-2">
+                <a href="/protect/network.htm?sn=a1b2c3d4 class="menu-link text-white d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="me-5" height="24" fill="white" viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"></path></svg><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"> Network </path></a>
+              </div>
+              <div class="py-2">
+                <a href="/protect/user.htm?sn=a1b2c3d4 class="menu-link text-white d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="me-5" enable-background="new 0 0 24 24" fill="white" height="24" viewBox="0 0 24 24" width="24">
+                    <g><rect fill="none" height="24" width="24"></rect></g>
+                    <g><path d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z"></path></g>
+                  </svg>
+                  User
+                </a>
+              </div>
+              <div class="py-2">
+                <a href="/protect/system.htm?sn=a1b2c3d4 class="menu-link text-white d-flex justify-content-between align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="me-5" height="24" fill="white" viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M16.01 7L16 3h-2v4h-4V3H8v4h-.01C7 6.99 6 7.99 6 8.99v5.49L9.5 18v3h5v-3l3.5-3.51v-5.5c0-1-1-2-1.99-1.99z"></path>
+                  </svg>
+                  System
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <section class="col-7 col-sm-8 mobile" id="background">
+            <div id="content">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card row m-2">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h2 style="margin: 0">Motion Sensor</h2>
+                      <i
+                        data-tool-tip="Motion On Events are seconds based&#013;&#010;Motion Off Events are minutes based"
+                        onclick="tooltipClick(this)"><svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" viewBox="0 0 24 24" width="20">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg></i>
+                    </div>
+                    <div class="card-body px-4">
+                      <div class="row">
+                        <div class="alert alert-success" style="display: none" role="alert">Success - Data Saved</div>
+                        <div class="alert alert-danger" style="display: none" role="alert">Error - Invalid data - Unable to save</div>
+                        <div class="col">
+                          <p>Set delay configuration for motion on/off events.</p>
+                          <p>Motion On Event: How much time of continuous motion (<strong>seconds</strong>) is needed before the event is communicated.</p>
+                          <form method="post" action="/protect/sensors.htm?sn=a1b2c3d4 name="motionSensor">
+                            <div class="d-flex justify-content-center mx-3 flex-wrap mt-4">
+                              <strong>Motion On Event</strong>
+                            </div>
+                            <div class="d-flex justify-content-center mx-3 flex-wrap">
+                              <div class="input-group d-flex align-items-center w-50 mt-1">
+                                <input type="number" class="form-control" placeholder="0" min="0" max="120" id="MO" name="MO" value="0" />
+                                <span class="input-group-text">/120</span>
+                              </div>
+                            </div>
+                            <p class="mt-4">Motion Off Event: How much time of no motion (<strong>minutes</strong>) is needed before the event is communicated. (also referred to as debounce)</p>
+                            <div class="d-flex justify-content-center mx-3 flex-wrap mt-1">
+                              <strong>Motion Off Event</strong>
+                            </div>
+                            <div class="d-flex justify-content-center mx-3 flex-wrap">
+                              <div class="input-group d-flex align-items-center w-50 mt-1">
+                                <input type="number" class="form-control" placeholder="0" min="0" max="120" id="MN" name="MN" value="0" />
+                                <span class="input-group-text">/120</span>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                              <input type="submit" class="btn primary-btn my-2" value="Save" />
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="card row m-2">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h2 style="margin: 0">LED Indicator</h2>
+                      <!-- whitespace below necessary for tooltip spacing -->
+                      <i
+                        data-tool-tip="Valid ranges are 0-255.&#013;&#010;&#013;&#010;Example:&#013;&#010;Highest Intensity Red = R:255, G:0, B:0."
+                        onclick="tooltipClick(this)"><svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" viewBox="0 0 24 24" width="20">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg></i>
+                    </div>
+                    <div class="card-body px-4">
+                      <div class="alert alert-success" style="display: none" role="alert">Success - Data Saved</div>
+                      <div class="alert alert-danger" style="display: none" role="alert">Error - Invalid data - Unable to save</div>
+                      <p>Select illumination location and define color intensity for each motion state.</p>
+                      <form method="post" action="/protect/sensors.htm?sn=a1b2c3d4 name="ledindicator">
+                        <div class="d-flex justify-content-center align-items-center mb-3" align="center">
+                          <b>Illumination Location:</b>
+                          <select name="RS" class="form-select mx-2">
+                            <option value="center" selected="">Center</option>
+                            <option value="outer">Outer</option></select>&nbsp;
+                        </div>
+                        <p>Define color intensities for the given states. Valid ranges or 0 - 255 where 0 is off and 255 is brightest setting.</p>
+                        <div class="d-flex justify-content-center align-items-center mb-2" align="center">
+                          <b>Input Type:</b>
+                          <select name="CS" id="LED-input-type" class="form-select mx-2" onchange="ledInputChange(this)">
+                            <option value="rgb" id="rgb-option">RGB</option>
+                            <option value="hex" id="hex-option">Hex</option></select>&nbsp;
+                        </div>
+                        <div class="d-flex justify-content-around mx-3 flex-wrap" id="rgb-table">
+                          <!-- table from previous webpage -->
+                          <table class="ledindicatortable" width="180px">
+                            <tbody>
+                              <tr>
+                                <th style="text-align: center" colspan="2">No Motion State</th>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Red:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led h-100" placeholder="0" min="0" max="255" id="R0" name="R0" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Green:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led" placeholder="0" min="0" max="255" id="G0" name="G0" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Blue:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led" placeholder="0" min="0" max="255" id="B0" name="B0" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="ledindicatortable" width="180px">
+                            <tbody>
+                              <tr>
+                                <th style="text-align: center" colspan="2">Motion State</th>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Red:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led" placeholder="0" min="0" max="255" id="R1" name="R1" oninput="rgbToHex(this)" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Green:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led" placeholder="0" min="0" max="255" id="G1" name="G1" oninput="rgbToHex(this)" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: right">Blue:</th>
+                                <td>
+                                  <div class="input-group d-flex align-items-center">
+                                    <input type="number" class="form-control led" placeholder="0" min="0" max="255" id="B1" name="B1" oninput="rgbToHex(this)" />
+                                    <span class="input-group-text led-input">/255</span>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div id="hex-table" class="d-none">
+                          <div class="d-flex justify-content-around mx-3 flex-wrap">
+                            <table class="ledindicatortable" width="180px">
+                              <tbody>
+                                <tr>
+                                  <th style="text-align: center" colspan="2">No Motion State</th>
+                                </tr>
+                                <tr>
+                                  <th style="text-align: right">Value:</th>
+                                  <td>
+                                    <div class="input-group d-flex align-items-center">
+                                      <input type="text" class="form-control led h-100" placeholder="#000000" id="no-motion-hex" oninput="hexToRgb(this)" maxlength="7" />
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table class="ledindicatortable" width="180px">
+                              <tbody>
+                                <tr>
+                                  <th style="text-align: center" colspan="2">Motion State</th>
+                                </tr>
+                                <tr>
+                                  <th style="text-align: right">Value:</th>
+                                  <td>
+                                    <div class="input-group d-flex align-items-center">
+                                      <input type="text" class="form-control led" placeholder="#000000" id="motion-hex" oninput="hexToRgb(this)" maxlength="7" />
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="d-flex justify-content-center">
+                            <p>Hex values need to include # and all 6 characters (ex. #ff6633)</p>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                          <input type="submit" class="btn primary-btn my-2" value="Save" />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="card row m-2">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h2 style="margin: 0">Ambient Light Sensor</h2>
+                      <i
+                        data-tool-tip="If the sensor reads a value higher than 65,535, the saturation value is too high, and the sensitivity should be set to a lower number
+
+                                      Default value is 3"
+                        onclick="tooltipClick(this)"><svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" viewBox="0 0 24 24" width="20">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg></i>
+                    </div>
+                    <div class="card-body px-4">
+                      <div class="alert alert-success" style="display: none" role="alert">Success - Data Saved</div>
+                      <div class="alert alert-danger" style="display: none" role="alert">Error - Invalid data - Unable to save</div>
+                      <p>Select ambient light sensitivity settings. For brighter environments, set sensitivity to a lower number. For darker environments, set sensitivity to a higher number.</p>
+                      <form method="post" action="/protect/sensors.htm?sn=a1b2c3d4>
+                        <div class="datatablebox d-flex justify-content-center align-items-center mb-4" align="center">
+                          <b>Sensitivity:</b>
+                          <select name="sns" class="form-select mx-2">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected="">5</option></select>&nbsp;
+                        </div>
+
+                        <p>If sensor is reporting values at or above 65,535. The sensor is experiencing a saturated level and sensitivity should be decreased.</p>
+                        <div class="d-flex justify-content-center light-table">
+                          <table class="table table-sm" align="center">
+                            <tbody>
+                              <tr>
+                                <th>White:</th>
+                                <td><span id="WhiteALS">68</span></td>
+                              </tr>
+                              <tr>
+                                <th>Red:</th>
+                                <td><span id="RedALS">6</span></td>
+                              </tr>
+                              <tr>
+                                <th>Green:</th>
+                                <td><span id="GreenALS">0</span></td>
+                              </tr>
+                              <tr>
+                                <th>Blue:</th>
+                                <td><span id="BlueALS">0</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <h3>Events</h3>
+                        <p>Sensor communication threshold. The minimum value required to communicate an event. Communication threshold is set by a change in white light intensity.</p>
+                        <div class="datatablebox d-flex justify-content-center">
+                          <div class="input-group mb-3 w-50 h-100">
+                            <input type="number" class="form-control" min="0" max="65535" placeholder="0" value="1" id="AT" name="AT0" />
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                          <input type="submit" class="btn primary-btn my-2" value="Save" />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card row m-2">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                    <h2 style="margin: 0">Ambient Temperature Sensor</h2>
+                    <i
+                      data-tool-tip="Upon bootup, sensor will read `Stabilizing!`. After calibration, it will display the current temperature.
+
+                                      Sensor communication threshold limited to a change of 20 degrees (F)"
+                      onclick="tooltipClick(this)"><svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" viewBox="0 0 24 24" width="20">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg></i>
+                  </div>
+                  <div class="card-body px-4">
+                    <div class="alert alert-success" style="display: none" role="alert">Success - Data Saved</div>
+                    <div class="alert alert-danger" style="display: none" role="alert">Error - Invalid data - Unable to save</div>
+                    <p>Displays current ambient temperature in the room.</p>
+                    <div class="d-flex justify-content-center light-table">
+                      <table class="table table-sm" align="center">
+                        <tbody>
+                          <tr>
+                            <th>°F:</th>
+                            <td><span id="TempF">72.2</span></td>
+                          </tr>
+                          <tr>
+                            <th>°C:</th>
+                            <td><span id="TempC">22.3</span></td>
+                          </tr>
+                          <tr>
+                            <th>ADC:</th>
+                            <td><span id="TempAdc">924</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <h3>Events</h3>
+
+                    <p>Sensor communication threshold. The minimum value required to communicate an event to subscribers. Communication threshold is set by a change in temperature.</p>
+                    <form method="post" action="/protect/sensors.htm?sn=a1b2c3d4>
+                      <div class="datatablebox d-flex align-items-center w-50" style="margin-left: 25%">
+                        <div class="input-group h-100">
+                          <input type="number" class="form-control" placeholder="0" min="0" max="20" step="1" id="AT" value="1" name="TT0" />
+                        </div>
+                        <select name="TDF" class="form-select temp-select mx-2 h-50" id="temp-event-select">
+                          <option value="F" name="tdf" selected="">°F</option>
+                          <option value="C" name="tdc">°C</option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <input type="submit" class="btn primary-btn my-2" value="Save" />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="fixed-bottom">Copyright © V1.0.0</div>
+
+    <!-- LED Script -->
+    <script>
+      <!--
+
+      function tooltipClick(obj) {
+        obj.classList.toggle("tooltip-active");
+        if (obj.classList.contains("tooltip-active")) {
+          obj.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="#ff6633" viewBox="0 0 24 24" width="20"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>';
+        } else {
+          obj.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" viewBox="0 0 24 24" width="20"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>';
+        }
+      }
+
+      function Update() {
+        var noMotion = "000000";
+        document.getElementById("R0").value = parseInt(noMotion.substring(0, 2), 16);
+        document.getElementById("G0").value = parseInt(noMotion.substring(2, 4), 16);
+        document.getElementById("B0").value = parseInt(noMotion.substring(4, 6), 16);
+
+        var Motion = "FF0000";
+        document.getElementById("R1").value = parseInt(Motion.substring(0, 2), 16);
+        document.getElementById("G1").value = parseInt(Motion.substring(2, 4), 16);
+        document.getElementById("B1").value = parseInt(Motion.substring(4, 6), 16);
+      }
+
+      Update();
+      //-->
+    </script>
+    <!-- Light Sensor Script -->
+    <script type="text/javascript">
+      <!--
+      function hexToRgb(hex) {
+        let hexValue = hex.value;
+        if (hexValue.length == 7) {
+          hexValue = hexValue.substring(1);
+          // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+          var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+          hexValue = hexValue.replace(shorthandRegex, function (m, r, g, b) {
+            return r + r + g + g + b + b;
+          });
+
+          var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexValue);
+
+          if (hex.id == "no-motion-hex") {
+            document.querySelector("#R0").value = result ? parseInt(result[1], 16) : null;
+            document.querySelector("#G0").value = result ? parseInt(result[2], 16) : null;
+            document.querySelector("#B0").value = result ? parseInt(result[3], 16) : null;
+          }
+          if (hex.id == "motion-hex") {
+            document.querySelector("#R1").value = result ? parseInt(result[1], 16) : null;
+            document.querySelector("#G1").value = result ? parseInt(result[2], 16) : null;
+            document.querySelector("#B1").value = result ? parseInt(result[3], 16) : null;
+          }
+        }
+      }
+
+      function updateStatus(jsonData) {
+        if (!jsonData) {
+          return;
+        }
+
+        try {
+          var obj = JSON.parse(jsonData);
+          document.getElementById("WhiteALS").innerHTML = obj.ALS.White;
+          document.getElementById("RedALS").innerHTML = obj.ALS.Red;
+          document.getElementById("GreenALS").innerHTML = obj.ALS.Green;
+          document.getElementById("BlueALS").innerHTML = obj.ALS.Blue;
+          document.getElementById("TempF").innerHTML = obj.DegF;
+          document.getElementById("TempC").innerHTML = obj.DegC;
+          document.getElementById("TempAdc").innerHTML = obj.TempAdc;
+        } catch (err) {
+          document.getElementById("WhiteALS").innerHTML = "Error";
+          document.getElementById("RedALS").innerHTML = "Error";
+          document.getElementById("GreenALS").innerHTML = "Error";
+          document.getElementById("BlueALS").innerHTML = "Error";
+          document.getElementById("TempF").innerHTML = "Error";
+          document.getElementById("TempC").innerHTML = "Error";
+          document.getElementById("TempAdc").innerHTML = "Error";
+        }
+      }
+      setTimeout("newAJAXCommand('/../status.json', updateStatus, true)", 1000);
+
+      const burger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".sidebar");
+      burger.addEventListener("click", (e) => {
+        burger.classList.toggle("is-active");
+        menu.classList.toggle("mobile-menu");
+      });
+
+      const background = document.querySelector("#background");
+      background.addEventListener("click", () => {
+        if (menu.classList.contains("mobile-menu")) {
+          burger.classList.remove("is-active");
+          menu.classList.remove("mobile-menu");
+        }
+      });
+
+      let rgbTable = document.querySelector("#rgb-table");
+      let hexTable = document.querySelector("#hex-table");
+
+      rgbTable.classList.remove("d-none");
+
+      hexTable.disabled = true;
+      hexTable.classList.add("d-none");
+
+      let noMotionHex = document.querySelector("#no-motion-hex");
+      let motionHex = document.querySelector("#motion-hex");
+
+      function ledInputChange(obj) {
+        if (obj.value == "hex") {
+          rgbTable.classList.add("d-none");
+
+          hexTable.classList.remove("d-none");
+        }
+        if (obj.value == "rgb") {
+          rgbTable.classList.remove("d-none");
+
+          hexTable.classList.add("d-none");
+        }
+      }
+
+      window.addEventListener(
+        "resize",
+        function () {
+          if (document.documentElement.clientWidth > 585) {
+            if (menu.classList.contains("mobile-menu")) {
+              menu.classList.remove("mobile-menu");
+              burger.classList.remove("is-active");
+            }
+          }
+        },
+        true
+      );
+
+      //-->
+    </script>
+  </body>
+</html>
