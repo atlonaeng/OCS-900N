@@ -204,10 +204,7 @@
                       }
                     ]
                   },
-                  "required": [
-                    "name",
-                    "config"
-                  ]
+                  "required": ["name", "config"]
                 }
               }
             },
@@ -345,9 +342,7 @@
               ]
             }
           },
-          "required": [
-            "error"
-          ]
+          "required": ["error"]
         }
       ]
     }
@@ -389,10 +384,7 @@
           "type": "string",
           "readOnly": true,
           "description": "The hardware revision of the device.",
-          "examples": [
-            "A",
-            "B"
-          ]
+          "examples": ["A", "B"]
         },
         "serialNumber": {
           "type": "string",
@@ -400,26 +392,19 @@
           "minLength": 19,
           "maxLength": 19,
           "description": "The serial number of the device.",
-          "examples": [
-            "0710202102010000001",
-            "0710202212310000256"
-          ]
+          "examples": ["0710202102010000001", "0710202212310000256"]
         },
         "firmwareVersion": {
           "type": "string",
           "description": "Firmware version.",
           "readOnly": true,
-          "examples": [
-            "1.0.03"
-          ]
+          "examples": ["1.0.03"]
         },
         "uptime": {
           "type": "string",
           "description": "Elapsed time since device boot in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
           "readOnly": true,
-          "examples": [
-            "389:02:36:59"
-          ]
+          "examples": ["389:02:36:59"]
         }
       }
     },
@@ -430,17 +415,12 @@
         "name": {
           "type": "string",
           "description": "User editable device name",
-          "examples": [
-            "Sensor"
-          ]
+          "examples": ["Sensor"]
         },
         "location": {
           "type": "string",
           "description": "User editable device location",
-          "examples": [
-            "Executive Conference Room",
-            "Divisible Room"
-          ]
+          "examples": ["Executive Conference Room", "Divisible Room"]
         }
       }
     },
@@ -486,9 +466,7 @@
           "type": "string",
           "description": "Elapsed time since last detection in DDD:HH:MM:SS format.\n  * DDD: Days.\n  * HH: Hours.\n  * MM: Minutes.\n  * SS: Seconds.",
           "readOnly": true,
-          "examples": [
-            "389:02:36:59"
-          ]
+          "examples": ["389:02:36:59"]
         },
         "activeDelay": {
           "type": "integer",
@@ -594,10 +572,7 @@
           "$ref": "#/$defs/events",
           "properties": {
             "unit": {
-              "enum": [
-                "F",
-                "C"
-              ],
+              "enum": ["F", "C"],
               "default": "F"
             },
             "threshold": {
@@ -620,10 +595,7 @@
         "unit": {
           "type": "string",
           "description": "Units for threshold value.",
-          "enum": [
-            "F",
-            "C"
-          ]
+          "enum": ["F", "C"]
         },
         "threshold": {
           "type": "number",
@@ -717,10 +689,7 @@
           "type": "string",
           "description": "8-bit HEX representation of LED intensity for either red, green, or blue color.",
           "pattern": "[0-9a-fA-F]{2}",
-          "examples": [
-            "FF",
-            "a6"
-          ]
+          "examples": ["FF", "a6"]
         },
         {
           "type": "integer",
@@ -760,18 +729,12 @@
         {
           "pattern": "#*([0-9a-fA-F]{6})",
           "description": "RGB color represented as HEX.",
-          "examples": [
-            "#FF6633",
-            "ff6633"
-          ]
+          "examples": ["#FF6633", "ff6633"]
         },
         {
           "description": "RGB color represented as decimal.",
           "pattern": "(\\(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]),([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\))",
-          "examples": [
-            "(0,1,255)",
-            "(10,199,234)"
-          ]
+          "examples": ["(0,1,255)", "(10,199,234)"]
         }
       ]
     },
@@ -798,10 +761,7 @@
           "readOnly": true
         }
       },
-      "required": [
-        "username",
-        "password"
-      ]
+      "required": ["username", "password"]
     },
     "network": {
       "type": "object",
@@ -811,17 +771,12 @@
           "type": "string",
           "description": "MAC address.",
           "readOnly": true,
-          "examples": [
-            "B8:98:B0:00:9A:FF"
-          ]
+          "examples": ["B8:98:B0:00:9A:FF"]
         },
         "hostname": {
           "type": "string",
           "description": "Device hostname.",
-          "examples": [
-            "OCS-900N-0201B9",
-            "ConfRm102-Sensor"
-          ],
+          "examples": ["OCS-900N-0201B9", "ConfRm102-Sensor"],
           "minLength": 2,
           "maxLength": 16
         },
@@ -849,30 +804,21 @@
           "format": "ipv4",
           "description": "Device IPv4 address.",
           "default": "192.168.1.254",
-          "examples": [
-            "192.168.1.254",
-            "10.1.1.1"
-          ]
+          "examples": ["192.168.1.254", "10.1.1.1"]
         },
         "netmask": {
           "type": "string",
           "format": "ipv4",
           "description": "Subnet Mask.",
           "default": "255.255.255.0",
-          "examples": [
-            "255.255.255.0",
-            "255.255.254.0"
-          ]
+          "examples": ["255.255.255.0", "255.255.254.0"]
         },
         "gateway": {
           "type": "string",
           "format": "ipv4",
           "description": "Default Gateway IPv4 address.",
           "default": "192.168.1.1",
-          "examples": [
-            "192.168.1.1",
-            "10.1.1.1"
-          ]
+          "examples": ["192.168.1.1", "10.1.1.1"]
         },
         "dns": {
           "type": "object",
@@ -883,20 +829,14 @@
               "format": "ipv4",
               "description": "Primary DNS IPv4 address.",
               "default": "",
-              "examples": [
-                "192.168.1.1",
-                "10.1.1.1"
-              ]
+              "examples": ["192.168.1.1", "10.1.1.1"]
             },
             "secondary": {
               "type": "string",
               "format": "ipv4",
               "description": "Secondary DNS IPv4 address.",
               "default": "",
-              "examples": [
-                "192.168.1.1",
-                "10.1.1.1"
-              ]
+              "examples": ["192.168.1.1", "10.1.1.1"]
             }
           }
         },
